@@ -7,6 +7,7 @@ set ignorecase
 set smartcase
 set noshowmode
 set noshowcmd
+set cursorline
 set expandtab
 set tabstop=2
 set shiftwidth=2
@@ -18,7 +19,8 @@ set signcolumn=number
 set hidden
 set termguicolors
 set updatetime=100
-"set foldmethod=indent
+set foldmethod=indent
+set foldlevel=30
 
 silent !mkdir -p $HOME/.config/nvim/tmp/backup
 silent !mkdir -p $HOME/.config/nvim/tmp/undo
@@ -39,6 +41,7 @@ nnoremap vv ^v$h
 nmap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :close<CR>
 nnoremap W :w<CR>
+nmap R :source $MYVIMRC<CR>
 
 " Windows
 nmap <silent> sH :set nosplitright<CR>:vsplit<CR>
