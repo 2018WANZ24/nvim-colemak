@@ -187,3 +187,4 @@ source ~/.config/nvim/config/plugins/vim-table-mode.vim
 source ~/.config/nvim/config/plugins/rainbow.vim
 source ~/.config/nvim/config/plugins/indentLine.vim
 source ~/.config/nvim/config/md-snippets.vim
+source ~/.config/nvim/config/cursor.vim

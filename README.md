@@ -38,6 +38,9 @@ git clone https://github.com/2018WANZ24/nvimrc.git ~/.config/nvim/
 | q             | Close the window or tab                             |
 | W             | Save                                                |
 
+* Cursor down: `'` + `a/s/d/f/g/h/j/k/l/;` (as 1/2/3/4/5/6/7/8/9/0)
+* Cursor up: `[` + `a/s/d/f/g/h/j/k/l/;` (as 1/2/3/4/5/6/7/8/9/0)
+
 #### 1.2 Window Management
 | Shortcut          | Action                                        |
 |-------------------|-----------------------------------------------|
