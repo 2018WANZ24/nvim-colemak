@@ -2,11 +2,11 @@
 " === coc.nvim
 " ===
 let g:coc_global_extensions = [
-	\ 'coc-clangd',
 	\ 'coc-explorer',
 	\ 'coc-flutter-tools',
   \ 'coc-go',
 	\ 'coc-json',
+  \ 'coc-pairs',
 	\ 'coc-python',
 	\ 'coc-pyright',
   \ 'coc-snippets',
@@ -14,15 +14,10 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
 	\ 'coc-yank',]
 
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
-inoremap <silent><expr> <c-s> coc#refresh()
-
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gek <Plug>(coc-diagnostic-prev)
+nmap <silent> gej <Plug>(coc-diagnostic-next)
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -42,12 +37,12 @@ endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <Space>rn <Plug>(coc-rename)
-xmap <Space>m  <Plug>(coc-format-selected)
-nmap <Space>m  <Plug>(coc-format-selected)
+nmap <nowait> mr <Plug>(coc-rename)
+xmap maf <Plug>(coc-format-selected)
+nmap maf <Plug>(coc-format-selected)
 
-xmap <Space>a  <Plug>(coc-codeaction-selected)
-nmap <Space>aw  <Plug>(coc-codeaction-selected)w
+xmap maw <Plug>(coc-codeaction-selected)
+nmap maw  <Plug>(coc-codeaction-selected)w
 
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -61,22 +56,17 @@ omap ac <Plug>(coc-classobj-a)
 nnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
 nnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
 
-nnoremap sw <C-w>w
-
 " coc-snippets
-imap <C-h> <nop>
-imap <C-l> <nop>
-let g:coc_snippet_next = '<C-l>'
-let g:coc_snippet_prev = '<C-h>'
+let g:coc_snippet_next = '<C-n>'
+let g:coc_snippet_prev = '<C-p>'
 let g:snips_author = '2018WANZ24'
 
 " === coc-flutter-tools
-nmap <silent> <Space>ol :CocCommand flutter.toggleOutline<CR>
+nmap <silent> <Space>wo :CocCommand flutter.toggleOutline<CR>
 
 " === coc-explorer
-nmap <silent> <F3> :CocCommand explorer<CR>
+nmap <silent> <Space>wt :CocCommand explorer<CR>
 
 " === coc-yank
 nmap <silent> <Space>yy :<C-u>CocList -A --normal yank<CR>
 nmap <Space>yc :CocCommand yank.clean<CR>
-

@@ -29,10 +29,17 @@ set directory=$HOME/.config/nvim/tmp/backup,.
 set undofile
 set undodir=$HOME/.config/nvim/tmp/undo,.
 
+noremap! <C-h> <Left>
+noremap! <C-j> <Down>
+noremap! <C-k> <Up>
+noremap! <C-l> <Right>
+noremap! <C-a> <Home>
+noremap! <C-e> <End>
+
+noremap J <C-f>
+noremap K <C-b>
 noremap H ^
 noremap L $
-noremap J 5j
-noremap K 5k
 noremap > >>
 noremap < <<
 noremap ` ~
@@ -69,6 +76,7 @@ nmap sb <C-w>t<C-w>K
 nmap sv <C-w>t<C-w>H
 noremap srb <C-w>b<C-w>K
 noremap srv <C-w>b<C-w>H
+nnoremap sf <C-w>w
 noremap <silent> sth :set nosplitright<CR>:vsplit<CR>:term<CR>i
 noremap <silent> stj :set splitbelow<CR>:split<CR>:term<CR>i
 noremap <silent> stk :set nosplitbelow<CR>:split<CR>:term<CR>i
@@ -90,7 +98,7 @@ nmap <silent> <Leader>0 <Plug>AirlineSelectTab0
 nmap <silent> th <Plug>AirlineSelectPrevTab
 nmap <silent> tl <Plug>AirlineSelectNextTab
 
-noremap <Space>e :call CompileRunGcc()<CR>
+noremap <Space>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'c'
@@ -159,7 +167,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
@@ -188,3 +195,4 @@ source ~/.config/nvim/config/plugins/rainbow.vim
 source ~/.config/nvim/config/plugins/indentLine.vim
 source ~/.config/nvim/config/md-snippets.vim
 source ~/.config/nvim/config/cursor.vim
+

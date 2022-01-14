@@ -1,8 +1,8 @@
 " ===
 " === vista.vim
 " ===
-noremap <silent> <F2> :Vista!!<CR>
-noremap <silent> <Space>t :silent! Vista finder coc<CR>
+noremap <silent> <Space>wv :Vista!!<CR>
+noremap <silent> <Space>st :silent! Vista finder coc<CR>
 let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
 let g:vista_sidebar_open_cmd = 'set splitright|30vsplit'

@@ -1,8 +1,10 @@
 {
   "coc.preferences.extensionUpdateCheck": "daily",
-  "suggest.numberSelect": true,
+  "coc.preferences.messageLevel": "error",
+  "coc.source.around.firstMatch": false,
+  "coc.source.buffer.firstMatch": false,
+  "suggest.enablePreview": true,
   "suggest.triggerCompletionWait": 50,
-  "suggest.defaultSortMethod": "alphabetical",
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
@@ -41,11 +43,18 @@
   "codeLens.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
-    "dart"
+    "h",
+    "c",
+    "cpp",
+    "dart",
+    "python"
   ],
+  "yaml.format.enable": true,
+  "explorer.width": 38,
+  "explorer.file.column.indent.indentLine": true,
+  "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
-  "explorer.width": 35,
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
+  "explorer.buffer.showHiddenBuffers": false,
   "snippets.ultisnips.directories": [
     "UltiSnips",
     "$HOME/.config/nvim/Ultisnips/",
@@ -54,5 +63,6 @@
   "python.jediEnabled": false,
   "go.goplsOptions": {
     "completeUnimported": true
-  }
+  },
+  "yank.list.maxsize": 30
 }
