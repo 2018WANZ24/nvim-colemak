@@ -2,4 +2,4 @@
 " === vim-table-mode
 " ===
 
-noremap <Space>om :TableModeToggle<CR>
+noremap <Space>tm :TableModeToggle<CR>

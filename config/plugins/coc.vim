@@ -62,11 +62,10 @@ let g:coc_snippet_prev = '<C-p>'
 let g:snips_author = '2018WANZ24'
 
 " === coc-flutter-tools
-nmap <silent> <Space>wo :CocCommand flutter.toggleOutline<CR>
+nmap <silent> <Space>ol :CocCommand flutter.toggleOutline<CR>
 
 " === coc-explorer
-nmap <silent> <Space>wt :CocCommand explorer<CR>
+nmap <silent> tt :CocCommand explorer<CR>
 
 " === coc-yank
-nmap <silent> <Space>yy :<C-u>CocList -A --normal yank<CR>
-nmap <Space>yc :CocCommand yank.clean<CR>
+nmap <silent> <Space>y :<C-u>CocList -A --normal yank<CR>

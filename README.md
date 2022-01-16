@@ -12,8 +12,7 @@ mv nvim nvim_back
 * Install [npm](https://github.com/npm/cli)
 * Install [yarn](https://classic.yarnpkg.com/en/docs/install)
 * Install [fzf](https://github.com/junegunn/fzf)
-* Install [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
-* If you need C/C++/Objective-C language server(coc-clangd), install [clangd](https://clangd.llvm.org/installation)
+* Install [ripgrep](https://github.com/BurntSushi/ripgrep)
 * Clone this repository:
 ```
 git clone https://github.com/2018WANZ24/nvimrc.git ~/.config/nvim/
@@ -27,15 +26,15 @@ git clone https://github.com/2018WANZ24/nvimrc.git ~/.config/nvim/
 |---------------|-----------------------------------------------------|
 | H             | Cursor to the first non-blank character of the line |
 | L             | Cursor to the end of the line                       |
-| J             | Cursor up 5 lines                                   |
-| K             | Cursor down 5 lines                                 |
+| J             | Next page                                           |
+| K             | Previous page                                       |
 | >             | Indent                                              |
 | <             | Un-indent                                           |
 | \`            | Toggle case                                         |
 | ;             | Command mode                                        |
 | vv            | Select non-blank characters of the line except `\n` |
 | \<Space>\<CR> | No highlight search                                 |
-| q             | Close the window or tab                             |
+| q             | Close current window or tab                         |
 | W             | Save                                                |
 
 * Cursor down: `'` + `a/s/d/f/g/h/j/k/l/;` (as 1/2/3/4/5/6/7/8/9/0)
@@ -78,7 +77,7 @@ git clone https://github.com/2018WANZ24/nvimrc.git ~/.config/nvim/
 #### 1.4 Others
 | Shortcut  | Action |
 |-----------|--------|
-| \<Space>e | Run    |
+| \<Space>r | Run    |
 
 ### 2 Plugins
 The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
@@ -92,28 +91,26 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 | \<C-k>         | Previous completion                                                              |
 | \<Tab>         | Complete                                                                         |
 | \<C-s>         | Refresh completions                                                              |
-| [g             | Go to previous diagnostic                                                        |
-| ]g             | Go to next diagnostic                                                            |
+| gek            | Go to previous diagnostic                                                        |
+| gej            | Go to next diagnostic                                                            |
 | gd             | Go to definition                                                                 |
 | gy             | Go to type definition                                                            |
 | gi             | Go to implementation                                                             |
 | gr             | Go to references                                                                 |
 | \<Space>h      | Show documentation                                                               |
-| \<Space>rn     | Rename                                                                           |
-| \<Space>m      | Format selected                                                                  |
-| \<Space>a      | Code actions (on visual mode)                                                    |
-| \<Space>aw     | Code actions (on normal mode)                                                    |
+| mr             | Rename                                                                           |
+| maf            | Format selected                                                                  |
+| maw            | Code actions                                                                     |
 | \<operation>if | Operation for what is in a function                                              |
 | \<operation>af | Operation for the whole function                                                 |
 | \<operation>ic | Operation for what is in a class                                                 |
 | \<operation>ac | Operation for the whole class                                                    |
 | \<C-]>/<C-[>   | Scroll a floating window                                                         |
-| sw             | Go to a floating window                                                          |
-| \<C-l>         | Jump to next snippets placeholder (on insert mode)                               |
-| \<C-h>         | Jump to previous snippets placeholder (on insert mode)                           |
-| \<F3>          | Toggle file explorer ([coc-explorer](https://github.com/weirongxu/coc-explorer)) |
-| \<Space>yy     | Show yank history ([coc-yank](https://github.com/neoclide/coc-yank))             |
-| \<Space>yc     | Clear yank history ([coc-yank](https://github.com/neoclide/coc-yank))            |
+| sf             | Go to a floating window                                                          |
+| \<C-n>         | Jump to next snippets placeholder (on insert mode)                               |
+| \<C-p>         | Jump to previous snippets placeholder (on insert mode)                           |
+| tt          | Toggle file explorer ([coc-explorer](https://github.com/weirongxu/coc-explorer)) |
+| \<Space>y      | Show yank history ([coc-yank](https://github.com/neoclide/coc-yank))             |
 | \<Space>ol     | Show flutter outline (**Only works in dart files**)                              |
 
 * [vim-snippets](https://github.com/honza/vim-snippets) for snippets
@@ -130,26 +127,26 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 
 * [vista.vim](https://github.com/liuchengxu/vista.vim)
 
-| Shortcut  | Action         |
-|-----------|----------------|
-| \<F2>     | Toggle taglist |
-| \<Space>t | Search tags    |
+| Shortcut   | Action         |
+|------------|----------------|
+| \<Space>wv | Toggle taglist |
+| \<C-t>     | Search tags    |
 
 * [undotree](https://github.com/mbbill/undotree)
 
-| Shortcut | Action          |
-|----------|-----------------|
-| \<F4>    | Toggle undotree |
+| Shortcut   | Action          |
+|------------|-----------------|
+| \<Space>wu | Toggle undotree |
 
 * [fzf](http://github.com/junegunn/fzf) and [fzf.vim](https://github.com/junegunn/fzf.vim)
 
-| Shortcut  | Action                                        |
-|-----------|-----------------------------------------------|
-| \<Space>f | Search files in current directory             |
-| \<Space>p | Search contents of files in current directory |
-| \<Space>b | Search buffers                                |
-| \<Space>l | Search contents of lines in current file      |
-| \<Space>c | Search commands                               |
+| Shortcut | Action                                        |
+|----------|-----------------------------------------------|
+| \<C-f>   | Search files in current directory             |
+| \<C-p>   | Search contents of files in current directory |
+| \<C-b>   | Search buffers                                |
+| \<C-s>   | Search contents of lines in current file      |
+| \<C-c>   | Search commands                               |
 
 * [nerdcommenter](https://github.com/preservim/nerdcommenter)
 
@@ -161,7 +158,7 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 
 | Shortcut   | Action            |
 |------------|-------------------|
-| \<Leader>tm | Toggle table mode |
+| \<Space>tm | Toggle table mode |
 
 * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 
