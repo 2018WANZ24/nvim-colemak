@@ -10,6 +10,7 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set ignorecase
 set smartcase
+set wildmenu
 set noshowmode
 set noshowcmd
 set cursorline
@@ -32,13 +33,6 @@ set backupdir=$HOME/.config/nvim/tmp/backup,.
 set directory=$HOME/.config/nvim/tmp/backup,.
 set undofile
 set undodir=$HOME/.config/nvim/tmp/undo,.
-
-noremap! <C-n> <Left>
-noremap! <C-e> <Down>
-noremap! <C-u> <Up>
-noremap! <C-i> <Right>
-noremap! <C-a> <Home>
-noremap! <C-o> <End>
 
 noremap u k
 noremap n h
@@ -67,7 +61,7 @@ nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
 nnoremap R :w<CR>
 
-" Windows
+" Window
 nnoremap <silent> sN :set nosplitright<CR>:vsplit<CR>
 nnoremap <silent> sE :set splitbelow<CR>:split<CR>
 nnoremap <silent> sU :set nosplitbelow<CR>:split<CR>
@@ -95,13 +89,8 @@ nnoremap srh <C-w>b<C-w>K
 nnoremap srv <C-w>b<C-w>H
 nnoremap sf <C-w>w
 nnoremap sc <C-w>o
-nnoremap <silent> stn :set nosplitright<CR>:vsplit<CR>:term<CR>i
-nnoremap <silent> ste :set splitbelow<CR>:split<CR>:term<CR>i
-nnoremap <silent> stu :set nosplitbelow<CR>:split<CR>:term<CR>i
-nnoremap <silent> sti :set splitright<CR>:vsplit<CR>:term<CR>i
-nnoremap <silent> stt :tabe<CR>:term<CR>i
 
-" Tabs
+" Tab
 nmap <silent> tu :tabe<CR>
 nmap <silent> <Leader>1 <Plug>AirlineSelectTab1
 nmap <silent> <Leader>2 <Plug>AirlineSelectTab2
@@ -117,6 +106,33 @@ nmap <silent> tn <Plug>AirlineSelectPrevTab
 nmap <silent> ti <Plug>AirlineSelectNextTab
 nmap <silent> tmn :-tabmove<CR>
 nmap <silent> tmi :+tabmove<CR>
+
+" Terminal
+nnoremap <silent> stn :set nosplitright<CR>:vsplit<CR>:term<CR>i
+nnoremap <silent> ste :set splitbelow<CR>:split<CR>:term<CR>i
+nnoremap <silent> stu :set nosplitbelow<CR>:split<CR>:term<CR>i
+nnoremap <silent> sti :set splitright<CR>:vsplit<CR>:term<CR>i
+nnoremap <silent> stt :tabe<CR>:term<CR>i
+tnoremap <M-s> <C-\><C-n>
+tnoremap <M-n> <C-\><C-n><C-w>h
+tnoremap <M-e> <C-\><C-n><C-w>j
+tnoremap <M-u> <C-\><C-n><C-w>k
+tnoremap <M-i> <C-\><C-n><C-w>l
+let g:terminal_color_0  = '#000000'
+let g:terminal_color_1  = '#FF5555'
+let g:terminal_color_2  = '#50FA7B'
+let g:terminal_color_3  = '#F1FA8C'
+let g:terminal_color_4  = '#BD93F9'
+let g:terminal_color_5  = '#FF79C6'
+let g:terminal_color_6  = '#8BE9FD'
+let g:terminal_color_7  = '#BFBFBF'
+let g:terminal_color_8  = '#4D4D4D'
+let g:terminal_color_9  = '#FF6E67'
+let g:terminal_color_10 = '#5AF78E'
+let g:terminal_color_11 = '#F4F99D'
+let g:terminal_color_12 = '#CAA9FA'
+let g:terminal_color_13 = '#FF92D0'
+let g:terminal_color_14 = '#9AEDFE'
 
 noremap <Space>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -216,4 +232,5 @@ source ~/.config/nvim/config/plugins/rainbow.vim
 source ~/.config/nvim/config/plugins/indentLine.vim
 source ~/.config/nvim/config/md-snippets.vim
 source ~/.config/nvim/config/plugins/vim-gitgutter.vim
+source ~/.config/nvim/config/plugins/vim-visual-multi.vim
 
