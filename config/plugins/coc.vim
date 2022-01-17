@@ -44,8 +44,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 nmap <nowait> mr <Plug>(coc-rename)
 xmap maf <Plug>(coc-format-selected)
 nmap maf <Plug>(coc-format-selected)

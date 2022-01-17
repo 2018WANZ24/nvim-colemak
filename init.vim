@@ -3,29 +3,31 @@ if empty(glob($HOME.'/.config/nvim/autoload/plug.vim'))
 				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-set number
-set relativenumber
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
-set ignorecase
-set smartcase
-set wildmenu
-set noshowmode
-set noshowcmd
+set clipboard+=unnamedplus
+set autochdir
+set number
+set relativenumber
 set cursorline
-set expandtab
+set hidden
+set noexpandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set scrolloff=5
-set clipboard+=unnamedplus
-set shortmess+=c
-set hidden
-set termguicolors
-set updatetime=100
+set scrolloff=4
+set ttimeoutlen=0
+set notimeout
 set foldmethod=indent
 set foldlevel=30
+set noshowmode
+set noshowcmd
+set ignorecase
+set smartcase
+set shortmess+=c
+set updatetime=100
+set termguicolors
 
 silent !mkdir -p $HOME/.config/nvim/tmp/backup
 silent !mkdir -p $HOME/.config/nvim/tmp/undo
@@ -65,10 +67,12 @@ noremap > >>
 noremap < <<
 noremap ` ~
 noremap ; :
+nnoremap dy d%
 nnoremap vv ^v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
-nnoremap R :w<CR>
+nnoremap S :w<CR>
+nnoremap <M-s> :source $HOME/.config/nvim/init.vim<CR>
 
 " Window
 nnoremap <silent> sN :set nosplitright<CR>:vsplit<CR>
@@ -212,6 +216,8 @@ Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'RRethy/vim-illuminate'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'luochen1990/rainbow'
 Plug 'gcmt/wildfire.vim'
@@ -242,4 +248,4 @@ source ~/.config/nvim/config/plugins/indentLine.vim
 source ~/.config/nvim/config/md-snippets.vim
 source ~/.config/nvim/config/plugins/vim-gitgutter.vim
 source ~/.config/nvim/config/plugins/vim-visual-multi.vim
-
+source ~/.config/nvim/config/plugins/vim-illuminate.vim
