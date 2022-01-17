@@ -41,6 +41,8 @@
   "diagnostic.virtualTextPrefix": " ❯❯❯ ",
   "diagnostic.virtualText": true,
   "codeLens.enable": true,
+  "list.nextKeymap": "<C-e>",
+  "list.previousKeymap": "<C-u>",
   "coc.preferences.formatOnSaveFiletypes": [
     "json",
     "h",
@@ -55,6 +57,76 @@
   "explorer.file.showHiddenFiles": true,
   "explorer.icon.enableNerdfont": true,
   "explorer.buffer.showHiddenBuffers": false,
+  "explorer.sources": [
+    {
+      "name": "buffer",
+      "expand": false
+    },
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "explorer.keyMappingMode": "none",
+  "explorer.keyMappings.global": {
+    "u": "nodePrev",
+    "e": "nodeNext",
+    "h": "toggleSelection",
+    "<tab>": "actionMenu",
+    "gl": "expandRecursive",
+    "gh": "collapseRecursive",
+    "i": [
+      "wait",
+      "expandable?",
+      "expand",
+      "open"
+    ],
+    "<cr>": [
+      "wait",
+      "expandable?",
+      "cd",
+      "open"
+    ],
+    "I": "open:vsplit",
+    "o": [
+      "wait",
+      "expanded?",
+      "collapse",
+      "expand"
+    ],
+    "O": "open:tab",
+    "n": "collapse",
+    "l": "gotoParent",
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "yy": "copyFile",
+    "dd": "cutFile",
+    "pp": "pasteFile",
+    "dD": "deleteForever",
+    "a": "addFile",
+    "k": "addFile",
+    "M": "addDirectory",
+    "cw": "rename",
+    ".": "toggleHidden",
+    "zh": "toggleHidden",
+    "R": "refresh",
+    "?": "help",
+    "q": "quit",
+    "X": "systemExecute",
+    "gd": "listDrive",
+    "f": "search",
+    "F": "searchRecursive",
+    "B": "gotoSource:file",
+    "b": "gotoSource:buffer",
+    "[[": "sourcePrev",
+    "]]": "sourceNext",
+    "[d": "diagnosticPrev",
+    "]d": "diagnosticNext",
+    "[c": "gitPrev",
+    "]c": "gitNext",
+    "<<": "gitStage",
+    ">>": "gitUnstage"
+  },
   "snippets.ultisnips.directories": [
     "UltiSnips",
     "$HOME/.config/nvim/Ultisnips/",

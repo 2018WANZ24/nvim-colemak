@@ -24,17 +24,17 @@ git clone https://github.com/2018WANZ24/nvimrc.git ~/.config/nvim/
 #### 1.1 Basic Remappings
 | Shortcut      | Action                                              |
 |---------------|-----------------------------------------------------|
-| H             | Cursor to the first non-blank character of the line |
-| L             | Cursor to the end of the line                       |
-| J             | Next page                                           |
-| K             | Previous page                                       |
+| N             | Cursor to the first non-blank character of the line |
+| I             | Cursor to the end of the line                       |
+| E             | Next page                                           |
+| U             | Previous page                                       |
 | >             | Indent                                              |
 | <             | Un-indent                                           |
 | \`            | Toggle case                                         |
 | ;             | Command mode                                        |
 | vv            | Select non-blank characters of the line except `\n` |
 | \<Space>\<CR> | No highlight search                                 |
-| q             | Close current window or tab                         |
+| q             | Quit                                                |
 | W             | Save                                                |
 
 * Cursor down: `'` + `a/s/d/f/g/h/j/k/l/;` (as 1/2/3/4/5/6/7/8/9/0)
@@ -43,36 +43,38 @@ git clone https://github.com/2018WANZ24/nvimrc.git ~/.config/nvim/
 #### 1.2 Window Management
 | Shortcut          | Action                                        |
 |-------------------|-----------------------------------------------|
-| sH                | Split left                                    |
-| sJ                | Split below                                   |
-| sK                | Split above                                   |
-| sL                | Split right                                   |
+| sN                | Split left                                    |
+| sE                | Split below                                   |
+| sU                | Split above                                   |
+| sI                | Split right                                   |
 | \<Space> + number | Go to window(number)                          |
-| sh                | Go one window left                            |
-| sj                | Go one window below                           |
-| sk                | Go one window above                           |
-| sl                | Go one window right                           |
+| sn                | Go one window left                            |
+| se                | Go one window below                           |
+| su                | Go one window above                           |
+| si                | Go one window right                           |
 | \<Up>             | (Horizontal) Window size +5 lines             |
 | \<Down>           | (Horizontal) Window size -5 lines             |
 | \<Right>          | (Vertical) Window size +5 lines               |
 | \<Left>           | (Vertical) Window size -5 lines               |
-| sb                | Set the two splits to be horizontal           |
+| sh                | Set the two splits to be horizontal           |
 | sv                | Set the two splits to be vertical             |
-| srb               | Rotate splits and arrange splits horizontally |
+| srh               | Rotate splits and arrange splits horizontally |
 | srv               | Rotate splits and arrange splits vertically   |
-| sth               | Open terminal on the left                     |
-| stj               | Open terminal below                           |
-| stk               | Open terminal above                           |
-| stl               | Open terminal on the right                    |
+| stn               | Open terminal on the left                     |
+| ste               | Open terminal below                           |
+| stu               | Open terminal above                           |
+| sti               | Open terminal on the right                    |
 | stt               | Open terminal in a new tab                    |
 
 #### 1.3 Tab Management
-| Shortcut           | Action            |
-|--------------------|-------------------|
-| tn                 | New tab           |
-| \<Leader> + number | Go to tab(number) |
-| th                 | Go one tab left   |
-| tl                 | Go one tab right  |
+| Shortcut           | Action                |
+|--------------------|-----------------------|
+| tu                 | New tab               |
+| \<Leader> + number | Go to tab(number)     |
+| tn                 | Go one tab left       |
+| ti                 | Go one tab right      |
+| tmn                | Move tab to the left  |
+| tmi                | Move tab to the right |
 
 #### 1.4 Others
 | Shortcut  | Action |
@@ -87,12 +89,11 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 
 | Shortcut       | Action                                                                           |
 |----------------|----------------------------------------------------------------------------------|
-| \<C-j>         | Next completion                                                                  |
-| \<C-k>         | Previous completion                                                              |
+| \<C-e>         | Next completion                                                                  |
+| \<C-u>         | Previous completion                                                              |
 | \<Tab>         | Complete                                                                         |
-| \<C-s>         | Refresh completions                                                              |
-| gek            | Go to previous diagnostic                                                        |
-| gej            | Go to next diagnostic                                                            |
+| \<Space>-      | Go to previous diagnostic                                                        |
+| \<Space>=      | Go to next diagnostic                                                            |
 | gd             | Go to definition                                                                 |
 | gy             | Go to type definition                                                            |
 | gi             | Go to implementation                                                             |
@@ -101,15 +102,15 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 | mr             | Rename                                                                           |
 | maf            | Format selected                                                                  |
 | maw            | Code actions                                                                     |
-| \<operation>if | Operation for what is in a function                                              |
+| \<operation>kf | Operation for what is in a function                                              |
 | \<operation>af | Operation for the whole function                                                 |
-| \<operation>ic | Operation for what is in a class                                                 |
+| \<operation>kc | Operation for what is in a class                                                 |
 | \<operation>ac | Operation for the whole class                                                    |
 | \<C-]>/<C-[>   | Scroll a floating window                                                         |
-| sf             | Go to a floating window                                                          |
-| \<C-n>         | Jump to next snippets placeholder (on insert mode)                               |
-| \<C-p>         | Jump to previous snippets placeholder (on insert mode)                           |
-| tt          | Toggle file explorer ([coc-explorer](https://github.com/weirongxu/coc-explorer)) |
+| sf             | Go to next window                                                                |
+| \<C-e>         | Jump to next snippets placeholder (on insert mode)                               |
+| \<C-n>         | Jump to previous snippets placeholder (on insert mode)                           |
+| tt             | Toggle file explorer ([coc-explorer](https://github.com/weirongxu/coc-explorer)) |
 | \<Space>y      | Show yank history ([coc-yank](https://github.com/neoclide/coc-yank))             |
 | \<Space>ol     | Show flutter outline (**Only works in dart files**)                              |
 
@@ -129,14 +130,14 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 
 | Shortcut   | Action         |
 |------------|----------------|
-| \<Space>wv | Toggle taglist |
+| \<Space>v | Toggle taglist |
 | \<C-t>     | Search tags    |
 
 * [undotree](https://github.com/mbbill/undotree)
 
 | Shortcut   | Action          |
 |------------|-----------------|
-| \<Space>wu | Toggle undotree |
+| tt | Toggle undotree |
 
 * [fzf](http://github.com/junegunn/fzf) and [fzf.vim](https://github.com/junegunn/fzf.vim)
 
@@ -144,8 +145,8 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 |----------|-----------------------------------------------|
 | \<C-f>   | Search files in current directory             |
 | \<C-p>   | Search contents of files in current directory |
-| \<C-b>   | Search buffers                                |
-| \<C-s>   | Search contents of lines in current file      |
+| \<C-w>   | Search buffers                                |
+| \<C-l>   | Search contents of lines in current file      |
 | \<C-c>   | Search commands                               |
 
 * [nerdcommenter](https://github.com/preservim/nerdcommenter)
