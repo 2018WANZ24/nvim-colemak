@@ -203,15 +203,15 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
-Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
+Plug 'mg979/vim-visual-multi'
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'RRethy/vim-illuminate'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
-Plug 'mg979/vim-visual-multi'
 Plug 'Yggdroot/indentLine'
 call plug#end()
 
