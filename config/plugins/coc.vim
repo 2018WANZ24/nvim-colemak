@@ -6,7 +6,6 @@ let g:coc_global_extensions = [
 	\ 'coc-flutter-tools',
   \ 'coc-go',
 	\ 'coc-json',
-  \ 'coc-pairs',
 	\ 'coc-python',
 	\ 'coc-pyright',
   \ 'coc-snippets',
@@ -44,7 +43,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-nmap <nowait> mr <Plug>(coc-rename)
+nmap mr <Plug>(coc-rename)
 xmap maf <Plug>(coc-format-selected)
 nmap maf <Plug>(coc-format-selected)
 

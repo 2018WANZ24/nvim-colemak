@@ -38,12 +38,10 @@ set undodir=$HOME/.config/nvim/tmp/undo,.
 
 noremap! <C-e> <Down>
 noremap! <C-u> <Up>
+noremap! <C-t> <Left>
+noremap! <C-n> <Right>
 noremap! <C-a> <Home>
 noremap! <C-o> <End>
-inoremap <C-n> <Left>
-inoremap <C-i> <Right>
-cnoremap <C-t> <Left>
-cnoremap <C-n> <Right>
 
 noremap u k
 noremap n h
@@ -131,21 +129,6 @@ tnoremap <M-n> <C-\><C-n><C-w>h
 tnoremap <M-e> <C-\><C-n><C-w>j
 tnoremap <M-u> <C-\><C-n><C-w>k
 tnoremap <M-i> <C-\><C-n><C-w>l
-"let g:terminal_color_0  = '#000000'
-"let g:terminal_color_1  = '#FF5555'
-"let g:terminal_color_2  = '#50FA7B'
-"let g:terminal_color_3  = '#F1FA8C'
-"let g:terminal_color_4  = '#BD93F9'
-"let g:terminal_color_5  = '#FF79C6'
-"let g:terminal_color_6  = '#8BE9FD'
-"let g:terminal_color_7  = '#BFBFBF'
-"let g:terminal_color_8  = '#4D4D4D'
-"let g:terminal_color_9  = '#FF6E67'
-"let g:terminal_color_10 = '#5AF78E'
-"let g:terminal_color_11 = '#F4F99D'
-"let g:terminal_color_12 = '#CAA9FA'
-"let g:terminal_color_13 = '#FF92D0'
-"let g:terminal_color_14 = '#9AEDFE'
 
 noremap <Space>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
@@ -215,6 +198,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdcommenter'
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'RRethy/vim-illuminate'
@@ -238,14 +222,14 @@ color deus
 
 source ~/.config/nvim/config/plugins/coc.vim
 source ~/.config/nvim/config/plugins/vim-airline.vim
+source ~/.config/nvim/config/plugins/vim-gitgutter.vim
 source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
 source ~/.config/nvim/config/plugins/fzf.vim
 source ~/.config/nvim/config/plugins/nerdcommenter.vim
+source ~/.config/nvim/config/plugins/vim-illuminate.vim
 source ~/.config/nvim/config/plugins/vim-table-mode.vim
 source ~/.config/nvim/config/plugins/rainbow.vim
+source ~/.config/nvim/config/plugins/vim-visual-multi.vim
 source ~/.config/nvim/config/plugins/indentLine.vim
 source ~/.config/nvim/config/md-snippets.vim
-source ~/.config/nvim/config/plugins/vim-gitgutter.vim
-source ~/.config/nvim/config/plugins/vim-visual-multi.vim
-source ~/.config/nvim/config/plugins/vim-illuminate.vim
