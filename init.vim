@@ -34,6 +34,15 @@ set directory=$HOME/.config/nvim/tmp/backup,.
 set undofile
 set undodir=$HOME/.config/nvim/tmp/undo,.
 
+noremap! <C-e> <Down>
+noremap! <C-u> <Up>
+noremap! <C-a> <Home>
+noremap! <C-o> <End>
+inoremap <C-n> <Left>
+inoremap <C-i> <Right>
+cnoremap <C-t> <Left>
+cnoremap <C-n> <Right>
+
 noremap u k
 noremap n h
 noremap e j
@@ -91,21 +100,21 @@ nnoremap sf <C-w>w
 nnoremap sc <C-w>o
 
 " Tab
-nmap <silent> tu :tabe<CR>
-nmap <silent> <Leader>1 <Plug>AirlineSelectTab1
-nmap <silent> <Leader>2 <Plug>AirlineSelectTab2
-nmap <silent> <Leader>3 <Plug>AirlineSelectTab3
-nmap <silent> <Leader>4 <Plug>AirlineSelectTab4
-nmap <silent> <Leader>5 <Plug>AirlineSelectTab5
-nmap <silent> <Leader>6 <Plug>AirlineSelectTab6
-nmap <silent> <Leader>7 <Plug>AirlineSelectTab7
-nmap <silent> <Leader>8 <Plug>AirlineSelectTab8
-nmap <silent> <Leader>9 <Plug>AirlineSelectTab9
-nmap <silent> <Leader>0 <Plug>AirlineSelectTab0
-nmap <silent> tn <Plug>AirlineSelectPrevTab
-nmap <silent> ti <Plug>AirlineSelectNextTab
-nmap <silent> tmn :-tabmove<CR>
-nmap <silent> tmi :+tabmove<CR>
+nnoremap <silent> tu :tabe<CR>
+nnoremap <silent> <Leader>1 <Plug>AirlineSelectTab1
+nnoremap <silent> <Leader>2 <Plug>AirlineSelectTab2
+nnoremap <silent> <Leader>3 <Plug>AirlineSelectTab3
+nnoremap <silent> <Leader>4 <Plug>AirlineSelectTab4
+nnoremap <silent> <Leader>5 <Plug>AirlineSelectTab5
+nnoremap <silent> <Leader>6 <Plug>AirlineSelectTab6
+nnoremap <silent> <Leader>7 <Plug>AirlineSelectTab7
+nnoremap <silent> <Leader>8 <Plug>AirlineSelectTab8
+nnoremap <silent> <Leader>9 <Plug>AirlineSelectTab9
+nnoremap <silent> <Leader>0 <Plug>AirlineSelectTab0
+nnoremap <silent> tn <Plug>AirlineSelectPrevTab
+nnoremap <silent> ti <Plug>AirlineSelectNextTab
+nnoremap <silent> tmn :-tabmove<CR>
+nnoremap <silent> tmi :+tabmove<CR>
 
 " Terminal
 nnoremap <silent> stn :set nosplitright<CR>:vsplit<CR>:term<CR>i
@@ -118,70 +127,70 @@ tnoremap <M-n> <C-\><C-n><C-w>h
 tnoremap <M-e> <C-\><C-n><C-w>j
 tnoremap <M-u> <C-\><C-n><C-w>k
 tnoremap <M-i> <C-\><C-n><C-w>l
-let g:terminal_color_0  = '#000000'
-let g:terminal_color_1  = '#FF5555'
-let g:terminal_color_2  = '#50FA7B'
-let g:terminal_color_3  = '#F1FA8C'
-let g:terminal_color_4  = '#BD93F9'
-let g:terminal_color_5  = '#FF79C6'
-let g:terminal_color_6  = '#8BE9FD'
-let g:terminal_color_7  = '#BFBFBF'
-let g:terminal_color_8  = '#4D4D4D'
-let g:terminal_color_9  = '#FF6E67'
-let g:terminal_color_10 = '#5AF78E'
-let g:terminal_color_11 = '#F4F99D'
-let g:terminal_color_12 = '#CAA9FA'
-let g:terminal_color_13 = '#FF92D0'
-let g:terminal_color_14 = '#9AEDFE'
+"let g:terminal_color_0  = '#000000'
+"let g:terminal_color_1  = '#FF5555'
+"let g:terminal_color_2  = '#50FA7B'
+"let g:terminal_color_3  = '#F1FA8C'
+"let g:terminal_color_4  = '#BD93F9'
+"let g:terminal_color_5  = '#FF79C6'
+"let g:terminal_color_6  = '#8BE9FD'
+"let g:terminal_color_7  = '#BFBFBF'
+"let g:terminal_color_8  = '#4D4D4D'
+"let g:terminal_color_9  = '#FF6E67'
+"let g:terminal_color_10 = '#5AF78E'
+"let g:terminal_color_11 = '#F4F99D'
+"let g:terminal_color_12 = '#CAA9FA'
+"let g:terminal_color_13 = '#FF92D0'
+"let g:terminal_color_14 = '#9AEDFE'
 
 noremap <Space>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		set splitright
-		exec "!gcc % -o %<"
-		:vsp
-		:term ./%<
-	elseif &filetype == 'cpp'
-		set splitright
-		exec "!g++ -std=c++11 % -Wall -o %<"
-		:vsp
-		:term ./%<
-	elseif &filetype == 'cs'
-		set splitbelow
-		silent! exec "!mcs %"
-		:sp
-		:res -5
-		:term mono %<.exe
-	elseif &filetype == 'java'
-		set splitbelow
-		:sp
-		:res -5
-		term javac % && time java %<
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		set splitbelow
-		:sp
-		:term python3 %
-	elseif &filetype == 'html'
-		silent! exec "!".g:mkdp_browser." % &"
-	elseif &filetype == 'markdown'
-		exec "MarkdownPreview"
-	elseif &filetype == 'tex'
-		silent! exec "VimtexStop"
-		silent! exec "VimtexCompile"
-	elseif &filetype == 'dart'
-		silent! exec "CocCommand flutter.run"
-	elseif &filetype == 'javascript'
-		set splitbelow
-		:sp
-		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
-	elseif &filetype == 'go'
-		set splitbelow
-		:sp
-		:term go run .
-	endif
+  exec "w"
+  if &filetype == 'c'
+    set splitright
+    exec "!gcc % -o %<"
+    :vsp
+    :term ./%<
+  elseif &filetype == 'cpp'
+    set splitright
+    exec "!g++ -std=c++11 % -Wall -o %<"
+    :vsp
+    :term ./%<
+  elseif &filetype == 'cs'
+    set splitbelow
+    silent! exec "!mcs %"
+    :sp
+    :res -5
+    :term mono %<.exe
+  elseif &filetype == 'java'
+    set splitbelow
+    :sp
+    :res -5
+    term javac % && time java %<
+  elseif &filetype == 'sh'
+    :!time bash %
+  elseif &filetype == 'python'
+    set splitbelow
+    :sp
+    :term python3 %
+  elseif &filetype == 'html'
+    silent! exec "!".g:mkdp_browser." % &"
+  elseif &filetype == 'markdown'
+    exec "MarkdownPreview"
+  elseif &filetype == 'tex'
+    silent! exec "VimtexStop"
+    silent! exec "VimtexCompile"
+  elseif &filetype == 'dart'
+    silent! exec "CocCommand flutter.run"
+  elseif &filetype == 'javascript'
+    set splitbelow
+    :sp
+    :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+  elseif &filetype == 'go'
+    set splitbelow
+    :sp
+    :term go run .
+  endif
 endfunc
 
 " Plugins
