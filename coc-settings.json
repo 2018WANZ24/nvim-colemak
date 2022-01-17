@@ -128,7 +128,6 @@
     ">>": "gitUnstage"
   },
   "snippets.ultisnips.directories": [
-    "UltiSnips",
     "$HOME/.config/nvim/Ultisnips/",
     "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
   ],

@@ -20,7 +20,6 @@ set softtabstop=2
 set scrolloff=5
 set clipboard+=unnamedplus
 set shortmess+=c
-set signcolumn=number
 set hidden
 set termguicolors
 set updatetime=100
@@ -51,6 +50,7 @@ noremap K I
 noremap h e
 noremap - N
 noremap = n
+source ~/.config/nvim/config/cursor.vim
 
 noremap E <C-f>
 noremap U <C-b>
@@ -181,6 +181,7 @@ Plug 'morhetz/gruvbox'
 Plug 'theniceboy/nvim-deus'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -214,5 +215,5 @@ source ~/.config/nvim/config/plugins/vim-table-mode.vim
 source ~/.config/nvim/config/plugins/rainbow.vim
 source ~/.config/nvim/config/plugins/indentLine.vim
 source ~/.config/nvim/config/md-snippets.vim
-source ~/.config/nvim/config/cursor.vim
+source ~/.config/nvim/config/plugins/vim-gitgutter.vim
 
