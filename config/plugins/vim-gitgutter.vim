@@ -10,7 +10,7 @@ let g:gitgutter_sign_modified = '▎'
 let g:gitgutter_sign_removed = '▎'
 let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '='
-nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+nnoremap <silent> <Space>gf :GitGutterFold<CR>
+nnoremap <silent> H :GitGutterPreviewHunk<CR>
+nnoremap <silent> <Space>g- :GitGutterPrevHunk<CR>
+nnoremap <silent> <Space>g= :GitGutterNextHunk<CR>

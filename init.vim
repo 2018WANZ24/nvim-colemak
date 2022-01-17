@@ -70,7 +70,7 @@ noremap ; :
 nnoremap dy d%
 nnoremap vv ^v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
-nnoremap <silent> q :q<CR>
+nnoremap q :q<CR>
 nnoremap S :w<CR>
 nnoremap <M-s> :source $HOME/.config/nvim/init.vim<CR>
 
@@ -105,18 +105,18 @@ nnoremap sc <C-w>o
 
 " Tab
 nnoremap <silent> tu :tabe<CR>
-nnoremap <silent> <Leader>1 <Plug>AirlineSelectTab1
-nnoremap <silent> <Leader>2 <Plug>AirlineSelectTab2
-nnoremap <silent> <Leader>3 <Plug>AirlineSelectTab3
-nnoremap <silent> <Leader>4 <Plug>AirlineSelectTab4
-nnoremap <silent> <Leader>5 <Plug>AirlineSelectTab5
-nnoremap <silent> <Leader>6 <Plug>AirlineSelectTab6
-nnoremap <silent> <Leader>7 <Plug>AirlineSelectTab7
-nnoremap <silent> <Leader>8 <Plug>AirlineSelectTab8
-nnoremap <silent> <Leader>9 <Plug>AirlineSelectTab9
-nnoremap <silent> <Leader>0 <Plug>AirlineSelectTab0
-nnoremap <silent> tn <Plug>AirlineSelectPrevTab
-nnoremap <silent> ti <Plug>AirlineSelectNextTab
+nmap <Leader>1 <Plug>AirlineSelectTab1
+nmap <Leader>2 <Plug>AirlineSelectTab2
+nmap <Leader>3 <Plug>AirlineSelectTab3
+nmap <Leader>4 <Plug>AirlineSelectTab4
+nmap <Leader>5 <Plug>AirlineSelectTab5
+nmap <Leader>6 <Plug>AirlineSelectTab6
+nmap <Leader>7 <Plug>AirlineSelectTab7
+nmap <Leader>8 <Plug>AirlineSelectTab8
+nmap <Leader>9 <Plug>AirlineSelectTab9
+nmap <Leader>0 <Plug>AirlineSelectTab0
+nmap tn <Plug>AirlineSelectPrevTab
+nmap ti <Plug>AirlineSelectNextTab
 nnoremap <silent> tmn :-tabmove<CR>
 nnoremap <silent> tmi :+tabmove<CR>
 
@@ -131,6 +131,7 @@ tnoremap <M-n> <C-\><C-n><C-w>h
 tnoremap <M-e> <C-\><C-n><C-w>j
 tnoremap <M-u> <C-\><C-n><C-w>k
 tnoremap <M-i> <C-\><C-n><C-w>l
+tnoremap <silent> <M-t> <C-\><C-n>:-tabnext<CR>
 
 noremap <Space>r :call CompileRunGcc()<CR>
 func! CompileRunGcc()
