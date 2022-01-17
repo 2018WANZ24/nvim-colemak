@@ -9,6 +9,7 @@ let g:coc_global_extensions = [
 	\ 'coc-python',
 	\ 'coc-pyright',
   \ 'coc-snippets',
+	\ 'coc-translator',
 	\ 'coc-vimlsp',
   \ 'coc-yaml',
 	\ 'coc-yank',]
@@ -75,3 +76,6 @@ nnoremap <silent> tt :CocCommand explorer<CR>
 
 " === coc-yank
 nnoremap <silent> <Space>y :<C-u>CocList -A --normal yank<CR>
+
+" === coc-translator
+nmap ts <Plug>(coc-translator-p)

@@ -206,8 +206,8 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 | \<C-t>   | Open a new tab and edit current file in ranger                 |
 | \<C-x>   | Open a new window horizontally and edit current file in ranger |
 | \<C-v>   | Open a new window vertically and edit current file in ranger   |
-| gw       | Jump to current nvim working directory                         |
-| yw       | Set current directory as nvim's working directory              |
+| gw       | Change ranger's cwd to nvim's                                  |
+| yw       | Change nvim's cwd to ranger's                                  |
 
 * [nerdcommenter](https://github.com/preservim/nerdcommenter)
 
