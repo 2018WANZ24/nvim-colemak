@@ -47,7 +47,8 @@
 		"c",
 		"cpp",
 		"dart",
-		"python"
+		"python",
+		"go"
 	],
 	"yaml.format.enable": true,
 	"explorer.width": 38,
@@ -55,6 +56,7 @@
 	"explorer.file.showHiddenFiles": true,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.buffer.showHiddenBuffers": false,
+	"explorer.quitOnOpen": true,
 	"explorer.sources": [
 		{
 			"name": "buffer",
