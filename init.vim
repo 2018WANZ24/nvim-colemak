@@ -125,7 +125,8 @@ nnoremap <silent> ste :set splitbelow<CR>:split<CR>:term<CR>i
 nnoremap <silent> stu :set nosplitbelow<CR>:split<CR>:term<CR>i
 nnoremap <silent> sti :set splitright<CR>:vsplit<CR>:term<CR>i
 nnoremap <silent> stt :tabe<CR>:term<CR>i
-tnoremap <M-s> <C-\><C-n>
+tnoremap <M-x> <C-\><C-n>
+tnoremap <silent> <M-c> <C-\><C-n>:q<CR>
 tnoremap <M-n> <C-\><C-n><C-w>h
 tnoremap <M-e> <C-\><C-n><C-w>j
 tnoremap <M-u> <C-\><C-n><C-w>k
@@ -206,7 +207,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi'
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'RRethy/vim-illuminate'
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
 Plug 'gcmt/wildfire.vim'
