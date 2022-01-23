@@ -68,8 +68,9 @@ noremap ` ~
 noremap ; :
 nnoremap dy d%
 nnoremap vv ^v$h
+nnoremap Y y$
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
-nnoremap q :q<CR>
+nnoremap <silent> q :q<CR>
 nnoremap S :w<CR>
 nnoremap <M-s> :source $HOME/.config/nvim/init.vim<CR>
 
@@ -101,6 +102,7 @@ nnoremap srh <C-w>b<C-w>K
 nnoremap srv <C-w>b<C-w>H
 nnoremap sf <C-w>w
 nnoremap sc <C-w>o
+nnoremap sq <C-w>j:q<CR>
 
 " Tab
 nnoremap <silent> tu :tabe<CR>
@@ -185,22 +187,23 @@ endfunc
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
-" === Language servers
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
-" Other plugins
 Plug 'morhetz/gruvbox'
 Plug 'theniceboy/nvim-deus'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'airblade/vim-gitgutter'
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'preservim/nerdcommenter'
@@ -213,6 +216,9 @@ Plug 'luochen1990/rainbow'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
+Plug 'theniceboy/vim-move'
+Plug 'rhysd/clever-f.vim'
+
 call plug#end()
 
 " ===
@@ -227,10 +233,12 @@ color deus
 
 source ~/.config/nvim/config/plugins/coc.vim
 source ~/.config/nvim/config/plugins/vim-airline.vim
+source ~/.config/nvim/config/plugins/nvim-treesitter.vim
 source ~/.config/nvim/config/plugins/vim-gitgutter.vim
 source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
-source ~/.config/nvim/config/plugins/fzf.vim
+"source ~/.config/nvim/config/plugins/fzf.vim
+source ~/.config/nvim/config/plugins/LeaderF.vim
 source ~/.config/nvim/config/plugins/lazygit.vim
 source ~/.config/nvim/config/plugins/rnvimr.vim
 source ~/.config/nvim/config/plugins/nerdcommenter.vim

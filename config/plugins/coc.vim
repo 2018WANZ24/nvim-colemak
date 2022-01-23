@@ -14,16 +14,7 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
 	\ 'coc-yank',]
 
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
@@ -48,8 +39,17 @@ nmap mr <Plug>(coc-rename)
 xmap maf <Plug>(coc-format-selected)
 nmap maf <Plug>(coc-format-selected)
 
-xmap maw <Plug>(coc-codeaction-selected)
-nmap maw  <Plug>(coc-codeaction-selected)w
+augroup mygroup
+  autocmd!
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+xmap mas <Plug>(coc-codeaction-selected)
+nmap mas <Plug>(coc-codeaction-selected)
+nmap mac <Plug>(coc-codeaction)
+nmap mf <Plug>(coc-fix-current)
+nmap mal <Plug>(coc-codelens-action)
 
 xmap kf <Plug>(coc-funcobj-i)
 omap kf <Plug>(coc-funcobj-i)
@@ -62,6 +62,10 @@ omap ac <Plug>(coc-classobj-a)
 
 nnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
 nnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
+inoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-]>"
+inoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-[>"
+vnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
+vnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
 
 " coc-snippets
 let g:coc_snippet_next = '<C-e>'
