@@ -53,7 +53,7 @@
 	],
 	"yaml.format.enable": true,
 	"explorer.width": 38,
-	"explorer.file.column.indent.indentLine": true,
+	"explorer.file.column.indent.indentLine": false,
 	"explorer.file.showHiddenFiles": true,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.buffer.showHiddenBuffers": false,

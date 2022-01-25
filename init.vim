@@ -4,7 +4,7 @@ if empty(glob($HOME.'/.config/nvim/autoload/plug.vim'))
 endif
 
 set encoding=utf-8
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set fileencodings=utf-8
 set termencoding=utf-8
 set clipboard+=unnamedplus
 set number
@@ -39,8 +39,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 noremap! <C-e> <Down>
 noremap! <C-u> <Up>
-noremap! <C-t> <Left>
-noremap! <C-n> <Right>
+noremap! <C-n> <Left>
+noremap! <C-t> <Right>
 noremap! <C-a> <Home>
 noremap! <C-o> <End>
 
@@ -68,7 +68,6 @@ noremap ` ~
 noremap ; :
 nnoremap dy d%
 nnoremap vv ^v$h
-nnoremap Y y$
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
 nnoremap S :w<CR>
@@ -190,7 +189,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 Plug 'morhetz/gruvbox'
@@ -198,12 +196,12 @@ Plug 'theniceboy/nvim-deus'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'airblade/vim-gitgutter'
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'preservim/nerdcommenter'
@@ -212,11 +210,10 @@ Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'RRethy/vim-illuminate'
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 Plug 'jiangmiao/auto-pairs'
-Plug 'luochen1990/rainbow'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
-Plug 'theniceboy/vim-move'
+Plug '2018WANZ24/vim-move'
 Plug 'rhysd/clever-f.vim'
 
 call plug#end()
@@ -237,15 +234,14 @@ source ~/.config/nvim/config/plugins/nvim-treesitter.vim
 source ~/.config/nvim/config/plugins/vim-gitgutter.vim
 source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
-"source ~/.config/nvim/config/plugins/fzf.vim
-source ~/.config/nvim/config/plugins/LeaderF.vim
+source ~/.config/nvim/config/plugins/fzf.vim
 source ~/.config/nvim/config/plugins/lazygit.vim
 source ~/.config/nvim/config/plugins/rnvimr.vim
 source ~/.config/nvim/config/plugins/nerdcommenter.vim
+source ~/.config/nvim/config/plugins/vim-visual-multi.vim
 source ~/.config/nvim/config/plugins/vim-illuminate.vim
 source ~/.config/nvim/config/plugins/vim-table-mode.vim
-source ~/.config/nvim/config/plugins/rainbow.vim
-source ~/.config/nvim/config/plugins/vim-visual-multi.vim
+source ~/.config/nvim/config/plugins/auto-pairs.vim
 source ~/.config/nvim/config/plugins/indentLine.vim
 source ~/.config/nvim/config/md-snippets.vim
 
