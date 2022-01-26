@@ -4,8 +4,11 @@
 let g:coc_global_extensions = [
 	\ 'coc-explorer',
 	\ 'coc-flutter-tools',
+	\ 'coc-git',
   \ 'coc-go',
+	\	'coc-highlight',
 	\ 'coc-json',
+	\ 'coc-lists',
 	\ 'coc-python',
 	\ 'coc-pyright',
   \ 'coc-snippets',
@@ -34,6 +37,8 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap mr <Plug>(coc-rename)
 xmap maf <Plug>(coc-format-selected)
@@ -83,3 +88,21 @@ nnoremap <silent> <Space>y :<C-u>CocList -A --normal yank<CR>
 
 " === coc-translator
 nmap ts <Plug>(coc-translator-p)
+
+" === coc-lists
+nnoremap <silent> <C-f> :CocList files<CR>
+nnoremap <silent> <C-p> :CocList grep<CR>
+nnoremap <silent> <C-w> :CocList buffers<CR>
+nnoremap <silent> <C-s> :CocList lines<CR>
+nnoremap <silent> <C-c> :CocList vimcommands<CR>
+
+" === coc-git
+nmap g- <Plug>(coc-git-prevchunk)
+nmap g= <Plug>(coc-git-nextchunk)
+nmap gf <Plug>(coc-git-prevconflict)
+nmap gF <Plug>(coc-git-nextconflict)
+nmap H <Plug>(coc-git-chunkinfo)
+omap kg <Plug>(coc-git-chunk-inner)
+xmap kg <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)

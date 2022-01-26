@@ -197,17 +197,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'airblade/vim-gitgutter'
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi'
-Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'RRethy/vim-illuminate'
+"Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'gcmt/wildfire.vim'
@@ -231,15 +227,12 @@ color deus
 source ~/.config/nvim/config/plugins/coc.vim
 source ~/.config/nvim/config/plugins/vim-airline.vim
 source ~/.config/nvim/config/plugins/nvim-treesitter.vim
-source ~/.config/nvim/config/plugins/vim-gitgutter.vim
 source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
-source ~/.config/nvim/config/plugins/fzf.vim
 source ~/.config/nvim/config/plugins/lazygit.vim
 source ~/.config/nvim/config/plugins/rnvimr.vim
 source ~/.config/nvim/config/plugins/nerdcommenter.vim
 source ~/.config/nvim/config/plugins/vim-visual-multi.vim
-source ~/.config/nvim/config/plugins/vim-illuminate.vim
 source ~/.config/nvim/config/plugins/vim-table-mode.vim
 source ~/.config/nvim/config/plugins/auto-pairs.vim
 source ~/.config/nvim/config/plugins/indentLine.vim

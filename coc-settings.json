@@ -1,6 +1,7 @@
 {
 	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.messageLevel": "error",
+	"coc.preferences.colorSupport": true,
 	"coc.source.around.firstMatch": false,
 	"coc.source.buffer.firstMatch": false,
 	"suggest.minTriggerInputLength": 2,
@@ -40,8 +41,6 @@
 	"diagnostic.refreshOnInsertMode": false,
 	"diagnostic.checkCurrentLine": true,
 	"codeLens.enable": true,
-	"list.nextKeymap": "<C-e>",
-	"list.previousKeymap": "<C-u>",
 	"coc.preferences.formatOnSaveFiletypes": [
 		"json",
 		"h",
@@ -134,6 +133,23 @@
 	],
 	"python.jediEnabled": false,
 	"yank.list.maxsize": 30,
+	"yank.enableCompletion": false,
+	"list.nextKeymap": "<C-e>",
+	"list.previousKeymap": "<C-u>",
+	"lists.disabledLists": [
+		"cmdhistory",
+		"colors",
+		"filetypes",
+		"locationlist",
+		"marks",
+		"mru",
+		"quickfix",
+		"registers",
+		"searchhistory",
+		"sessions",
+		"windows"
+	],
+	"list.source.mru.ignoreGitIgnore": true,
 	"languageserver": {
 		"ccls": {
 			"command": "ccls",

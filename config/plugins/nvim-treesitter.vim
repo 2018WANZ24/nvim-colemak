@@ -3,7 +3,7 @@
 " ===
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"c", "cpp", "python", "dart", "go", "bash", "lua"},
+  ensure_installed = {"c", "cpp", "python", "dart", "go", "bash", "lua", "json"},
   highlight = {
     enable = true,
   },
