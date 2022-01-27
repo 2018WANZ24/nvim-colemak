@@ -37,12 +37,13 @@ set undodir=$HOME/.config/nvim/tmp/undo,.
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-noremap! <C-e> <Down>
-noremap! <C-u> <Up>
-noremap! <C-n> <Left>
-noremap! <C-t> <Right>
-noremap! <C-a> <Home>
-noremap! <C-o> <End>
+noremap! <C-q><C-e> <Down>
+noremap! <C-q><C-u> <Up>
+noremap! <C-q><C-n> <Left>
+noremap! <C-q><C-i> <Right>
+noremap! <C-q><C-a> <Home>
+noremap! <C-q><C-o> <End>
+map <C-q><C-i> <C-i>
 
 noremap u k
 noremap n h
@@ -197,7 +198,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'liuchengxu/vista.vim'
+"Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
@@ -227,7 +228,7 @@ color deus
 source ~/.config/nvim/config/plugins/coc.vim
 source ~/.config/nvim/config/plugins/vim-airline.vim
 source ~/.config/nvim/config/plugins/nvim-treesitter.vim
-source ~/.config/nvim/config/plugins/vista.vim
+"source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
 source ~/.config/nvim/config/plugins/lazygit.vim
 source ~/.config/nvim/config/plugins/rnvimr.vim
