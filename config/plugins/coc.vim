@@ -73,8 +73,8 @@ vnoremap <silent><nowait><expr> <M-]> coc#float#has_scroll() ? coc#float#scroll(
 vnoremap <silent><nowait><expr> <M-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<M-[>"
 
 " coc-snippets
-let g:coc_snippet_next = '<C-q><C-e>'
-let g:coc_snippet_prev = '<C-q><C-n>'
+let g:coc_snippet_next = '<C-q><C-i>'
+let g:coc_snippet_prev = '<C-n>'
 let g:snips_author = '2018WANZ24'
 
 " === coc-flutter-tools
@@ -90,11 +90,11 @@ nnoremap <silent> <Space>y :<C-u>CocList -A --normal yank<CR>
 nmap ts <Plug>(coc-translator-p)
 
 " === coc-lists
-nnoremap <silent> <C-q><C-f> :CocList files<CR>
-nnoremap <silent> <C-q><C-p> :CocList grep<CR>
-nnoremap <silent> <C-q><C-a> :CocList buffers<CR>
-nnoremap <silent> <C-q><C-s> :CocList lines<CR>
-nnoremap <silent> <C-q><C-z> :CocList vimcommands<CR>
+nnoremap <silent> <C-f> :CocList files<CR>
+nnoremap <silent> <C-p> :CocList -I grep --smart-case<CR>
+nnoremap <silent> <C-w> :CocList buffers<CR>
+nnoremap <silent> <C-s> :CocList lines<CR>
+nnoremap <silent> <C-c> :CocList vimcommands<CR>
 
 " === coc-git
 nmap g- <Plug>(coc-git-prevchunk)
@@ -106,3 +106,4 @@ omap kg <Plug>(coc-git-chunk-inner)
 xmap kg <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
+nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>

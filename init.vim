@@ -25,6 +25,7 @@ set noshowcmd
 set ignorecase
 set smartcase
 set shortmess+=c
+set history=50
 set updatetime=100
 set termguicolors
 
@@ -37,14 +38,6 @@ set undodir=$HOME/.config/nvim/tmp/undo,.
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-noremap! <C-q><C-e> <Down>
-noremap! <C-q><C-u> <Up>
-noremap! <C-q><C-n> <Left>
-noremap! <C-q><C-i> <Right>
-noremap! <C-q><C-a> <Home>
-noremap! <C-q><C-o> <End>
-map <C-q><C-i> <C-i>
-
 noremap u k
 noremap n h
 noremap e j
@@ -56,6 +49,14 @@ noremap h e
 noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
+
+noremap! <C-e> <Down>
+noremap! <C-u> <Up>
+noremap! <C-n> <Left>
+noremap! <C-q><C-i> <Right>
+noremap! <C-a> <Home>
+noremap! <C-o> <End>
+inoremap <C-p> <Esc>p
 
 noremap E <C-f>
 noremap U <C-b>
@@ -105,7 +106,7 @@ nnoremap sc <C-w>o
 nnoremap sq <C-w>j:q<CR>
 
 " Tab
-nnoremap <silent> tu :tabe<CR>
+nnoremap <silent> <Space>u :tabe<CR>
 nmap <Leader>1 <Plug>AirlineSelectTab1
 nmap <Leader>2 <Plug>AirlineSelectTab2
 nmap <Leader>3 <Plug>AirlineSelectTab3
@@ -116,10 +117,10 @@ nmap <Leader>7 <Plug>AirlineSelectTab7
 nmap <Leader>8 <Plug>AirlineSelectTab8
 nmap <Leader>9 <Plug>AirlineSelectTab9
 nmap <Leader>0 <Plug>AirlineSelectTab0
-nmap tn <Plug>AirlineSelectPrevTab
-nmap ti <Plug>AirlineSelectNextTab
-nnoremap <silent> tmn :-tabmove<CR>
-nnoremap <silent> tmi :+tabmove<CR>
+nmap <Space>n <Plug>AirlineSelectPrevTab
+nmap <Space>i <Plug>AirlineSelectNextTab
+nnoremap <silent> <Space>mn :-tabmove<CR>
+nnoremap <silent> <Space>mi :+tabmove<CR>
 
 " Terminal
 nnoremap <silent> stn :set nosplitright<CR>:vsplit<CR>:term<CR>i
@@ -204,9 +205,10 @@ Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi'
-"Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-rooter'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
@@ -234,6 +236,7 @@ source ~/.config/nvim/config/plugins/lazygit.vim
 source ~/.config/nvim/config/plugins/rnvimr.vim
 source ~/.config/nvim/config/plugins/nerdcommenter.vim
 source ~/.config/nvim/config/plugins/vim-visual-multi.vim
+source ~/.config/nvim/config/plugins/vim-hexokinase.vim
 source ~/.config/nvim/config/plugins/vim-table-mode.vim
 source ~/.config/nvim/config/plugins/auto-pairs.vim
 source ~/.config/nvim/config/plugins/indentLine.vim

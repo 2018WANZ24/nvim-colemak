@@ -56,7 +56,6 @@
 	"explorer.file.showHiddenFiles": true,
 	"explorer.icon.enableNerdfont": true,
 	"explorer.buffer.showHiddenBuffers": false,
-	"explorer.quitOnOpen": true,
 	"explorer.sources": [
 		{
 			"name": "buffer",
@@ -149,7 +148,21 @@
 		"sessions",
 		"windows"
 	],
+	"list.source.files.defaultOptions": [
+		"--number-select"
+	],
 	"list.source.mru.ignoreGitIgnore": true,
+	"git.virtualTextPrefix": "  ➤  ",
+	"git.addedSign.hlGroup": "GitGutterAdd",
+	"git.changedSign.hlGroup": "GitGutterChange",
+	"git.removedSign.hlGroup": "GitGutterDelete",
+	"git.topRemovedSign.hlGroup": "GitGutterDelete",
+	"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+	"git.addedSign.text": "▎",
+	"git.changedSign.text": "▎",
+	"git.removedSign.text": "▎",
+	"git.topRemovedSign.text": "▔",
+	"git.changeRemovedSign.text": "▋",
 	"languageserver": {
 		"ccls": {
 			"command": "ccls",
