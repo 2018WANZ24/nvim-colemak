@@ -1,12 +1,12 @@
 " ===
 " === coc.nvim
 " ===
+let g:coc_data_home = '~/.config/nvim/coc/'
 let g:coc_global_extensions = [
 	\ 'coc-explorer',
 	\ 'coc-flutter-tools',
 	\ 'coc-git',
   \ 'coc-go',
-	\	'coc-highlight',
 	\ 'coc-json',
 	\ 'coc-lists',
 	\ 'coc-python',
@@ -16,6 +16,7 @@ let g:coc_global_extensions = [
 	\ 'coc-vimlsp',
   \ 'coc-yaml',
 	\ 'coc-yank',]
+	"\ 'coc-fzf-preview',
 
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
@@ -37,8 +38,6 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap mr <Plug>(coc-rename)
 xmap maf <Plug>(coc-format-selected)
@@ -91,10 +90,18 @@ nmap ts <Plug>(coc-translator-p)
 
 " === coc-lists
 nnoremap <silent> <C-f> :CocList files<CR>
-nnoremap <silent> <C-p> :CocList -I grep --smart-case<CR>
+nnoremap <silent> <C-p> :CocList grep<CR>
 nnoremap <silent> <C-w> :CocList buffers<CR>
 nnoremap <silent> <C-s> :CocList lines<CR>
 nnoremap <silent> <C-c> :CocList vimcommands<CR>
+
+" === coc-fzf-preview
+"let g:fzf_preview_use_dev_icons = 1
+"nnoremap <silent> <C-f> :CocCommand fzf-preview.ProjectFiles<CR>
+"nnoremap <silent> <C-p> :CocCommand fzf-preview.ProjectGrep .<CR>
+"nnoremap <silent> <C-w> :CocCommand fzf-preview.AllBuffers<CR>
+"nnoremap <silent> <C-s> :CocCommand fzf-preview.Lines<CR>
+"nnoremap <silent> <C-c> :CocCommand fzf-preview.CommandPalette<CR>
 
 " === coc-git
 nmap g- <Plug>(coc-git-prevchunk)

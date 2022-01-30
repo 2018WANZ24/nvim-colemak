@@ -11,7 +11,6 @@ let g:rnvimr_action = {
             \ '<C-x>': 'NvimEdit split',
             \ '<C-v>': 'NvimEdit vsplit',
             \ 'gw': 'JumpNvimCwd',
-            \ 'yw': 'EmitRangerCwd'
             \ }
 let g:rnvimr_layout = { 'relative': 'editor',
             \ 'width': &columns,

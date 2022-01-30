@@ -1,7 +1,6 @@
 {
 	"coc.preferences.extensionUpdateCheck": "daily",
 	"coc.preferences.messageLevel": "error",
-	"coc.preferences.colorSupport": true,
 	"coc.source.around.firstMatch": false,
 	"coc.source.buffer.firstMatch": false,
 	"suggest.minTriggerInputLength": 2,
@@ -148,11 +147,13 @@
 		"sessions",
 		"windows"
 	],
-	"list.source.files.defaultOptions": [
-		"--number-select"
-	],
 	"list.source.mru.ignoreGitIgnore": true,
-	"git.virtualTextPrefix": "  ➤  ",
+	"list.source.grep.defaultArgs": [
+		"--line-number",
+		"--no-heading",
+		"--color=always",
+		"--smart-case"
+	],
 	"git.addedSign.hlGroup": "GitGutterAdd",
 	"git.changedSign.hlGroup": "GitGutterChange",
 	"git.removedSign.hlGroup": "GitGutterDelete",

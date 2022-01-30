@@ -7,6 +7,7 @@ set encoding=utf-8
 set fileencodings=utf-8
 set termencoding=utf-8
 set clipboard+=unnamedplus
+set noswapfile
 set number
 set relativenumber
 set cursorline
@@ -18,6 +19,8 @@ set softtabstop=2
 set scrolloff=4
 set ttimeoutlen=0
 set notimeout
+"set foldmethod=expr
+"set foldexpr=nvim_treesitter#foldexpr()
 set foldmethod=indent
 set foldlevel=30
 set noshowmode
@@ -56,7 +59,7 @@ noremap! <C-n> <Left>
 noremap! <C-q><C-i> <Right>
 noremap! <C-a> <Home>
 noremap! <C-o> <End>
-inoremap <C-p> <Esc>p
+inoremap <C-p> <Esc>pa
 
 noremap E <C-f>
 noremap U <C-b>
@@ -128,6 +131,8 @@ nnoremap <silent> ste :set splitbelow<CR>:split<CR>:term<CR>i
 nnoremap <silent> stu :set nosplitbelow<CR>:split<CR>:term<CR>i
 nnoremap <silent> sti :set splitright<CR>:vsplit<CR>:term<CR>i
 nnoremap <silent> stt :tabe<CR>:term<CR>i
+tnoremap <C-u> <Up>
+tnoremap <C-e> <Down>
 tnoremap <M-x> <C-\><C-n>
 tnoremap <silent> <M-c> <C-\><C-n>:q<CR>
 tnoremap <M-n> <C-\><C-n><C-w>h
@@ -189,18 +194,20 @@ endfunc
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'honza/vim-snippets'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-
 Plug 'morhetz/gruvbox'
 Plug 'theniceboy/nvim-deus'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
-"Plug 'liuchengxu/vista.vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'preservim/nerdcommenter'
@@ -212,7 +219,7 @@ Plug 'airblade/vim-rooter'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
-Plug '2018WANZ24/vim-move'
+Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 
 call plug#end()
@@ -227,10 +234,10 @@ call plug#end()
 " ===
 color deus
 
-source ~/.config/nvim/config/plugins/coc.vim
 source ~/.config/nvim/config/plugins/vim-airline.vim
 source ~/.config/nvim/config/plugins/nvim-treesitter.vim
-"source ~/.config/nvim/config/plugins/vista.vim
+source ~/.config/nvim/config/plugins/coc.vim
+source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
 source ~/.config/nvim/config/plugins/lazygit.vim
 source ~/.config/nvim/config/plugins/rnvimr.vim
@@ -240,6 +247,7 @@ source ~/.config/nvim/config/plugins/vim-hexokinase.vim
 source ~/.config/nvim/config/plugins/vim-table-mode.vim
 source ~/.config/nvim/config/plugins/auto-pairs.vim
 source ~/.config/nvim/config/plugins/indentLine.vim
+source ~/.config/nvim/config/plugins/vim-move.vim
 source ~/.config/nvim/config/md-snippets.vim
 
 let g:terminal_color_0  = '#000000'
