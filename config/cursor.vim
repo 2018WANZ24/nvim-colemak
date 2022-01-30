@@ -1,6 +1,7 @@
-noremap   [q   3k
-noremap   [w   4k
-noremap   [f   5k
+noremap   [q   2k
+noremap   [w   3k
+noremap   [f   4k
+noremap   [p   5k
 noremap   [h   6k
 noremap   [n   7k
 noremap   [e   8k
@@ -56,9 +57,10 @@ noremap  [dn  57k
 noremap  [de  58k
 noremap  [di  59k
 
-noremap   'q   3j
-noremap   'w   4j
-noremap   'f   5j
+noremap   'q   2j
+noremap   'w   3j
+noremap   'f   4j
+noremap   'p   5j
 noremap   'h   6j
 noremap   'n   7j
 noremap   'e   8j

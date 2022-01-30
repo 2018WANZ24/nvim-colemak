@@ -19,8 +19,6 @@ set softtabstop=2
 set scrolloff=4
 set ttimeoutlen=0
 set notimeout
-"set foldmethod=expr
-"set foldexpr=nvim_treesitter#foldexpr()
 set foldmethod=indent
 set foldlevel=30
 set noshowmode
@@ -53,8 +51,10 @@ noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
 
-noremap! <C-e> <Down>
-noremap! <C-u> <Up>
+cnoremap <C-y> <Down>
+cnoremap <C-l> <Up>
+inoremap <C-e> <Down>
+inoremap <C-u> <Up>
 noremap! <C-n> <Left>
 noremap! <C-q><C-i> <Right>
 noremap! <C-a> <Home>
@@ -126,13 +126,14 @@ nnoremap <silent> <Space>mn :-tabmove<CR>
 nnoremap <silent> <Space>mi :+tabmove<CR>
 
 " Terminal
-nnoremap <silent> stn :set nosplitright<CR>:vsplit<CR>:term<CR>i
-nnoremap <silent> ste :set splitbelow<CR>:split<CR>:term<CR>i
-nnoremap <silent> stu :set nosplitbelow<CR>:split<CR>:term<CR>i
-nnoremap <silent> sti :set splitright<CR>:vsplit<CR>:term<CR>i
-nnoremap <silent> stt :tabe<CR>:term<CR>i
-tnoremap <C-u> <Up>
-tnoremap <C-e> <Down>
+autocmd TermOpen term://* startinsert
+nnoremap <silent> stn :set nosplitright<CR>:vsplit<CR>:term<CR>
+nnoremap <silent> ste :set splitbelow<CR>:split<CR>:term<CR>
+nnoremap <silent> stu :set nosplitbelow<CR>:split<CR>:term<CR>
+nnoremap <silent> sti :set splitright<CR>:vsplit<CR>:term<CR>
+nnoremap <silent> stt :tabe<CR>:term<CR>
+"tnoremap <C-u> <Up>
+"tnoremap <C-e> <Down>
 tnoremap <M-x> <C-\><C-n>
 tnoremap <silent> <M-c> <C-\><C-n>:q<CR>
 tnoremap <M-n> <C-\><C-n><C-w>h
@@ -206,8 +207,8 @@ Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'preservim/nerdcommenter'

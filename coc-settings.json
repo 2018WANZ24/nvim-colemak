@@ -163,7 +163,7 @@
 	"git.changedSign.text": "▎",
 	"git.removedSign.text": "▎",
 	"git.topRemovedSign.text": "▔",
-	"git.changeRemovedSign.text": "▋",
+	"git.changeRemovedSign.text": "▎",
 	"languageserver": {
 		"ccls": {
 			"command": "ccls",
