@@ -1,7 +1,7 @@
 " ===
 " === vim-airline
 " ===
-let g:airline_theme = 'deus'
+let g:airline_theme = 'onedark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type= 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1

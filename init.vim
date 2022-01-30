@@ -51,12 +51,10 @@ noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
 
-cnoremap <C-y> <Down>
-cnoremap <C-l> <Up>
-inoremap <C-e> <Down>
-inoremap <C-u> <Up>
+noremap! <C-e> <Down>
+noremap! <F2> <Up>
 noremap! <C-n> <Left>
-noremap! <C-q><C-i> <Right>
+noremap! <F1> <Right>
 noremap! <C-a> <Home>
 noremap! <C-o> <End>
 inoremap <C-p> <Esc>pa
@@ -73,6 +71,7 @@ noremap ` ~
 noremap ; :
 nnoremap dy d%
 nnoremap vv ^v$h
+nnoremap <M-v> v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
 nnoremap S :w<CR>
@@ -197,6 +196,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'theniceboy/nvim-deus'
+Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -233,13 +233,19 @@ call plug#end()
 " ===
 " === nvim-deus
 " ===
-color deus
+"color deus
+
+" ===
+" === onedark.vim
+" ===
+color onedark
 
 source ~/.config/nvim/config/plugins/vim-airline.vim
 source ~/.config/nvim/config/plugins/nvim-treesitter.vim
 source ~/.config/nvim/config/plugins/coc.vim
 source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
+source ~/.config/nvim/config/plugins/fzf.vim
 source ~/.config/nvim/config/plugins/lazygit.vim
 source ~/.config/nvim/config/plugins/rnvimr.vim
 source ~/.config/nvim/config/plugins/nerdcommenter.vim

@@ -72,7 +72,7 @@ vnoremap <silent><nowait><expr> <M-]> coc#float#has_scroll() ? coc#float#scroll(
 vnoremap <silent><nowait><expr> <M-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<M-[>"
 
 " coc-snippets
-let g:coc_snippet_next = '<C-q><C-i>'
+let g:coc_snippet_next = '<F1>'
 let g:coc_snippet_prev = '<C-n>'
 let g:snips_author = '2018WANZ24'
 
@@ -89,11 +89,11 @@ nnoremap <silent> <Space>y :<C-u>CocList -A --normal yank<CR>
 nmap ts <Plug>(coc-translator-p)
 
 " === coc-lists
-nnoremap <silent> <C-f> :CocList files<CR>
-nnoremap <silent> <C-p> :CocList grep<CR>
-nnoremap <silent> <C-w> :CocList buffers<CR>
-nnoremap <silent> <C-s> :CocList lines<CR>
-nnoremap <silent> <C-c> :CocList vimcommands<CR>
+"nnoremap <silent> <C-f> :CocList files<CR>
+"nnoremap <silent> <C-p> :CocList grep<CR>
+"nnoremap <silent> <C-w> :CocList buffers<CR>
+"nnoremap <silent> <C-s> :CocList lines<CR>
+"nnoremap <silent> <C-c> :CocList vimcommands<CR>
 
 " === coc-fzf-preview
 "let g:fzf_preview_use_dev_icons = 1
@@ -113,4 +113,5 @@ omap kg <Plug>(coc-git-chunk-inner)
 xmap kg <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
-nnoremap <silent> <Space>gu :CocCommand git.chunkUndo<CR>
+nnoremap <silent> gu :CocCommand git.chunkUndo<CR>
+nnoremap <silent> gs :CocCommand git.chunkStage<CR>
