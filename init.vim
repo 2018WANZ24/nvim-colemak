@@ -73,6 +73,7 @@ noremap > >>
 noremap < <<
 noremap ` ~
 noremap ; :
+noremap 1 %
 nnoremap dy d%
 nnoremap vv ^v$h
 nnoremap <M-v> v$h
@@ -80,8 +81,10 @@ nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
 nnoremap S :w<CR>
 nnoremap <M-s> :source $HOME/.config/nvim/init.vim<CR>
+nnoremap <C-c> :cd<Space>
 
 " Window
+nnoremap s <nop>
 nnoremap <silent> sN :set nosplitright<CR>:vsplit<CR>
 nnoremap <silent> sE :set splitbelow<CR>:split<CR>
 nnoremap <silent> sU :set nosplitbelow<CR>:split<CR>
@@ -128,71 +131,14 @@ nmap sy <Plug>AirlineSelectNextTab
 nnoremap <silent> sml :-tabmove<CR>
 nnoremap <silent> smy :+tabmove<CR>
 
-" Terminal
-autocmd TermOpen term://* startinsert
-nnoremap <silent> stn :set nosplitright<CR>:vsplit<CR>:term<CR>
-nnoremap <silent> ste :set splitbelow<CR>:split<CR>:term<CR>
-nnoremap <silent> stu :set nosplitbelow<CR>:split<CR>:term<CR>
-nnoremap <silent> sti :set splitright<CR>:vsplit<CR>:term<CR>
-nnoremap <silent> stt :tabe<CR>:term<CR>
-"tnoremap <C-u> <Up>
-"tnoremap <C-e> <Down>
-tnoremap <M-x> <C-\><C-n>
-tnoremap <silent> <M-c> <C-\><C-n>:q<CR>
-tnoremap <M-n> <C-\><C-n><C-w>h
-tnoremap <M-e> <C-\><C-n><C-w>j
-tnoremap <M-u> <C-\><C-n><C-w>k
-tnoremap <M-i> <C-\><C-n><C-w>l
-tnoremap <silent> <M-t> <C-\><C-n>:-tabnext<CR>
-
-noremap <Space>r :call CompileRunGcc()<CR>
+noremap <Space>rr :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-  exec "w"
-  if &filetype == 'c'
-    set splitright
-    exec "!gcc % -o %<"
-    :vsp
-    :term ./%<
-  elseif &filetype == 'cpp'
-    set splitright
-    exec "!g++ -std=c++11 % -Wall -o %<"
-    :vsp
-    :term ./%<
-  elseif &filetype == 'cs'
-    set splitbelow
-    silent! exec "!mcs %"
-    :sp
-    :res -5
-    :term mono %<.exe
-  elseif &filetype == 'java'
-    set splitbelow
-    :sp
-    :res -5
-    term javac % && time java %<
-  elseif &filetype == 'sh'
-    :!time bash %
-  elseif &filetype == 'python'
-    set splitbelow
-    :sp
-    :term python3 %
-  elseif &filetype == 'html'
-    silent! exec "!".g:mkdp_browser." % &"
-  elseif &filetype == 'markdown'
-    exec "MarkdownPreview"
-  elseif &filetype == 'tex'
-    silent! exec "VimtexStop"
-    silent! exec "VimtexCompile"
-  elseif &filetype == 'dart'
-    silent! exec "CocCommand flutter.run"
-  elseif &filetype == 'javascript'
-    set splitbelow
-    :sp
-    :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
-  elseif &filetype == 'go'
-    set splitbelow
-    :sp
-    :term go run .
-  endif
+	exec "w"
+	if &filetype == 'markdown'
+		exec "MarkdownPreview"
+	elseif &filetype == 'dart'
+		silent! exec "CocCommand flutter.run"
+	endif
 endfunc
 
 " Plugins
@@ -207,6 +153,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'liuchengxu/vista.vim'
@@ -219,8 +167,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi'
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
+Plug 'voldikss/vim-floaterm'
 Plug 'jiangmiao/auto-pairs'
-Plug 'airblade/vim-rooter'
+Plug 'junegunn/vim-after-object'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
@@ -237,16 +186,17 @@ call plug#end()
 " ===
 " === nvim-deus
 " ===
-"color deus
+color deus
 
 " ===
 " === onedark.vim
 " ===
-color onedark
+"color onedark
 
 source ~/.config/nvim/config/plugins/vim-airline.vim
 source ~/.config/nvim/config/plugins/nvim-treesitter.vim
 source ~/.config/nvim/config/plugins/coc.vim
+source ~/.config/nvim/config/plugins/asynctasks.vim
 source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
 "source ~/.config/nvim/config/plugins/fzf.vim
@@ -257,6 +207,7 @@ source ~/.config/nvim/config/plugins/vim-visual-multi.vim
 source ~/.config/nvim/config/plugins/vim-hexokinase.vim
 source ~/.config/nvim/config/plugins/vim-table-mode.vim
 source ~/.config/nvim/config/plugins/auto-pairs.vim
+source ~/.config/nvim/config/plugins/vim-after-object.vim
 source ~/.config/nvim/config/plugins/indentLine.vim
 source ~/.config/nvim/config/plugins/vim-move.vim
 source ~/.config/nvim/config/md-snippets.vim
@@ -276,3 +227,19 @@ let g:terminal_color_11 = '#F4F99D'
 let g:terminal_color_12 = '#CAA9FA'
 let g:terminal_color_13 = '#FF92D0'
 let g:terminal_color_14 = '#9AEDFE'
+
+" ===
+" === vim-floaterm
+" ===
+let g:floaterm_width = 1.0
+let g:floaterm_height = 1.0
+let g:floaterm_keymap_new = '<C-t><C-o>'
+let g:floaterm_keymap_prev = '<C-t><C-l>'
+let g:floaterm_keymap_next = '<C-t><C-y>'
+let g:floaterm_keymap_toggle = '<C-t><C-t>'
+let g:floaterm_keymap_kill = '<C-q>'
+nnoremap <silent> <C-t><C-n> :FloatermNew --wintype=vsplit --position=left --width=0.5<CR>
+nnoremap <silent> <C-t><C-e> :FloatermNew --wintype=split --position=bottom --height=0.5<CR>
+nnoremap <silent> <C-t><C-u> :FloatermNew --wintype=split --position=top --height=0.5<CR>
+nnoremap <silent> <C-t><C-i> :FloatermNew --wintype=vsplit --position=right --width=0.5<CR>
+tnoremap <C-t><C-s> <C-\><C-n>

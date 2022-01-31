@@ -4,6 +4,7 @@
 let g:coc_data_home = '~/.config/nvim/coc/'
 let g:coc_global_extensions = [
 	\ 'coc-explorer',
+	\ 'coc-floaterm',
 	\ 'coc-flutter-tools',
 	\ 'coc-git',
   \ 'coc-go',
@@ -12,11 +13,11 @@ let g:coc_global_extensions = [
 	\ 'coc-python',
 	\ 'coc-pyright',
   \ 'coc-snippets',
+	\ 'coc-tasks',
 	\ 'coc-translator',
 	\ 'coc-vimlsp',
   \ 'coc-yaml',
 	\ 'coc-yank',]
-	"\ 'coc-fzf-preview',
 
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
@@ -49,11 +50,9 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-xmap mas <Plug>(coc-codeaction-selected)
-nmap mas <Plug>(coc-codeaction-selected)
-nmap mac <Plug>(coc-codeaction)
 nmap mf <Plug>(coc-fix-current)
-nmap mal <Plug>(coc-codelens-action)
+xmap mas <Plug>(coc-codeaction-selected)
+nmap mas <Plug>(coc-codeaction-selected)w
 
 xmap kf <Plug>(coc-funcobj-i)
 omap kf <Plug>(coc-funcobj-i)
@@ -71,7 +70,7 @@ inoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? "\<c-r>=coc#float
 vnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
 vnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
 
-" coc-snippets
+" === coc-snippets
 let g:coc_snippet_next = '<F1>'
 let g:coc_snippet_prev = '<C-n>'
 let g:snips_author = '2018WANZ24'
@@ -91,17 +90,11 @@ nmap ts <Plug>(coc-translator-p)
 " === coc-lists
 nnoremap <silent> <C-f> :CocList files<CR>
 nnoremap <silent> <C-p> :CocList grep<CR>
-nnoremap <silent> <C-w> :CocList buffers<CR>
+nnoremap <silent> <C-w> :<C-u>CocList --normal buffers<CR>
 nnoremap <silent> <C-s> :CocList lines<CR>
-nnoremap <silent> <C-c> :CocList vimcommands<CR>
-
-" === coc-fzf-preview
-"let g:fzf_preview_use_dev_icons = 1
-"nnoremap <silent> <C-f> :CocCommand fzf-preview.ProjectFiles<CR>
-"nnoremap <silent> <C-p> :CocCommand fzf-preview.ProjectGrep .<CR>
-"nnoremap <silent> <C-w> :CocCommand fzf-preview.AllBuffers<CR>
-"nnoremap <silent> <C-s> :CocCommand fzf-preview.Lines<CR>
-"nnoremap <silent> <C-c> :CocCommand fzf-preview.CommandPalette<CR>
+nnoremap <silent> <Space>sc :CocList vimcommands<CR>
+nnoremap <silent> <Space>sa :<C-u>CocList --normal tasks<CR>
+nnoremap <silent> <Space>st :<C-u>CocList --normal floaterm<CR>
 
 " === coc-git
 nmap g- <Plug>(coc-git-prevchunk)
