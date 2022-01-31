@@ -51,16 +51,20 @@ noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
 
-noremap! <C-e> <Down>
-noremap! <F2> <Up>
+inoremap <C-e> <Down>
+inoremap <C-u> <Up>
+cnoremap <C-y> <Down>
+cnoremap <C-l> <Up>
 noremap! <C-n> <Left>
 noremap! <F1> <Right>
 noremap! <C-a> <Home>
 noremap! <C-o> <End>
 inoremap <C-p> <Esc>pa
 
-noremap E <C-f>
-noremap U <C-b>
+noremap <C-u> <C-b>
+noremap <C-e> <C-f>
+noremap <C-n> <C-u>
+noremap <F1> <C-d>
 noremap N ^
 noremap I $
 noremap W 5w
@@ -108,7 +112,7 @@ nnoremap sc <C-w>o
 nnoremap sq <C-w>j:q<CR>
 
 " Tab
-nnoremap <silent> <Space>u :tabe<CR>
+nnoremap <silent> ss :tabe<CR>
 nmap <Leader>1 <Plug>AirlineSelectTab1
 nmap <Leader>2 <Plug>AirlineSelectTab2
 nmap <Leader>3 <Plug>AirlineSelectTab3
@@ -119,10 +123,10 @@ nmap <Leader>7 <Plug>AirlineSelectTab7
 nmap <Leader>8 <Plug>AirlineSelectTab8
 nmap <Leader>9 <Plug>AirlineSelectTab9
 nmap <Leader>0 <Plug>AirlineSelectTab0
-nmap <Space>n <Plug>AirlineSelectPrevTab
-nmap <Space>i <Plug>AirlineSelectNextTab
-nnoremap <silent> <Space>mn :-tabmove<CR>
-nnoremap <silent> <Space>mi :+tabmove<CR>
+nmap sl <Plug>AirlineSelectPrevTab
+nmap sy <Plug>AirlineSelectNextTab
+nnoremap <silent> sml :-tabmove<CR>
+nnoremap <silent> smy :+tabmove<CR>
 
 " Terminal
 autocmd TermOpen term://* startinsert
@@ -207,8 +211,8 @@ Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
 Plug 'preservim/nerdcommenter'
@@ -245,7 +249,7 @@ source ~/.config/nvim/config/plugins/nvim-treesitter.vim
 source ~/.config/nvim/config/plugins/coc.vim
 source ~/.config/nvim/config/plugins/vista.vim
 source ~/.config/nvim/config/plugins/undotree.vim
-source ~/.config/nvim/config/plugins/fzf.vim
+"source ~/.config/nvim/config/plugins/fzf.vim
 source ~/.config/nvim/config/plugins/lazygit.vim
 source ~/.config/nvim/config/plugins/rnvimr.vim
 source ~/.config/nvim/config/plugins/nerdcommenter.vim

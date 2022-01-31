@@ -64,12 +64,12 @@ omap kc <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-nnoremap <silent><nowait><expr> <M-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<M-]>"
-nnoremap <silent><nowait><expr> <M-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<M-[>"
-inoremap <silent><nowait><expr> <M-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<M-]>"
-inoremap <silent><nowait><expr> <M-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<M-[>"
-vnoremap <silent><nowait><expr> <M-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<M-]>"
-vnoremap <silent><nowait><expr> <M-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<M-[>"
+nnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
+nnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
+inoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-]>"
+inoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-[>"
+vnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
+vnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
 
 " coc-snippets
 let g:coc_snippet_next = '<F1>'
@@ -89,11 +89,11 @@ nnoremap <silent> <Space>y :<C-u>CocList -A --normal yank<CR>
 nmap ts <Plug>(coc-translator-p)
 
 " === coc-lists
-"nnoremap <silent> <C-f> :CocList files<CR>
-"nnoremap <silent> <C-p> :CocList grep<CR>
-"nnoremap <silent> <C-w> :CocList buffers<CR>
-"nnoremap <silent> <C-s> :CocList lines<CR>
-"nnoremap <silent> <C-c> :CocList vimcommands<CR>
+nnoremap <silent> <C-f> :CocList files<CR>
+nnoremap <silent> <C-p> :CocList grep<CR>
+nnoremap <silent> <C-w> :CocList buffers<CR>
+nnoremap <silent> <C-s> :CocList lines<CR>
+nnoremap <silent> <C-c> :CocList vimcommands<CR>
 
 " === coc-fzf-preview
 "let g:fzf_preview_use_dev_icons = 1
