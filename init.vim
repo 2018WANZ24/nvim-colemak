@@ -12,7 +12,7 @@ set number
 set relativenumber
 set cursorline
 set hidden
-set noexpandtab
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -73,7 +73,6 @@ noremap > >>
 noremap < <<
 noremap ` ~
 noremap ; :
-noremap 1 %
 nnoremap dy d%
 nnoremap vv ^v$h
 nnoremap <M-v> v$h
@@ -197,6 +196,9 @@ color deus
 " === vim-airline
 " ===
 let g:airline_theme = 'onedark'
+let g:airline_section_c = '%{getcwd()} %{airline#util#wrap(airline#extensions#coc#get_status(),0)}'
+let g:airline_section_x = ''
+let g:airline_section_z = '%l/%L'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type= 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -214,17 +216,17 @@ let g:airline#extensions#tabline#buffer_idx_format = {
 	\}
 
 function! WindowNumber(...)
-    let builder = a:1
-    let context = a:2
+	let builder = a:1
+	let context = a:2
 	call builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())} ')
-    return 0
+	return 0
 endfunction
 
 call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 
 " ===
-" === nvim-treesitter 
+" === nvim-treesitter
 " ===
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -407,7 +409,7 @@ endfunc
 "command! -bang -nargs=* Rg call fzf#vim#grep('rg --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 " ===
-" === lazygit.nvim 
+" === lazygit.nvim
 " ===
 nnoremap <silent> <C-g> :LazyGit<CR>
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
@@ -416,7 +418,7 @@ let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " cust
 let g:lazygit_use_neovim_remote = 1 " for neovim-remote support
 
 " ===
-" === rnvimr 
+" === rnvimr
 " ===
 let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
