@@ -51,20 +51,17 @@ noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
 
-inoremap <C-e> <Down>
-inoremap <C-u> <Up>
-cnoremap <C-y> <Down>
-cnoremap <C-l> <Up>
-noremap! <C-n> <Left>
-noremap! <F1> <Right>
-noremap! <C-a> <Home>
-noremap! <C-o> <End>
-inoremap <C-p> <Esc>pa
+noremap! <A-n> <Left>
+noremap! <A-e> <Down>
+noremap! <A-u> <Up>
+noremap! <A-i> <Right>
+noremap! <A-a> <Home>
+noremap! <A-o> <End>
 
-noremap <C-u> <C-b>
-noremap <C-e> <C-f>
-noremap <C-n> <C-u>
-noremap <F1> <C-d>
+noremap <A-u> <C-b>
+noremap <A-e> <C-f>
+noremap <A-n> <C-u>
+noremap <A-i> <C-d>
 noremap N ^
 noremap I $
 noremap W 5w
@@ -75,12 +72,12 @@ noremap ` ~
 noremap ; :
 nnoremap dy d%
 nnoremap vv ^v$h
-nnoremap <M-v> v$h
+nnoremap <A-v> v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
 nnoremap S :w<CR>
-nnoremap <M-s> :source $HOME/.config/nvim/init.vim<CR>
-nnoremap <C-c> :cd<Space>
+nnoremap <C-s> :source $HOME/.config/nvim/init.vim<CR>
+nnoremap <A-c> :cd<Space>
 
 " Window
 nnoremap s <nop>
@@ -172,7 +169,6 @@ Plug 'junegunn/vim-after-object'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
-Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 
 call plug#end()
@@ -195,7 +191,7 @@ color deus
 " ===
 " === vim-airline
 " ===
-let g:airline_theme = 'onedark'
+let g:airline_theme = 'deus'
 let g:airline_section_c = '%{getcwd()} %{airline#util#wrap(airline#extensions#coc#get_status(),0)}'
 let g:airline_section_x = ''
 let g:airline_section_z = '%l/%L'
@@ -307,16 +303,16 @@ omap kc <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-nnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
-nnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
-inoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-]>"
-inoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-[>"
-vnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
-vnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
+nnoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
+nnoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
+inoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-]>"
+inoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-[>"
+vnoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
+vnoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
 
 " === coc-snippets
-let g:coc_snippet_next = '<F1>'
-let g:coc_snippet_prev = '<C-n>'
+let g:coc_snippet_next = '<A-i>'
+let g:coc_snippet_prev = '<A-n>'
 let g:snips_author = '2018WANZ24'
 
 " === coc-flutter-tools
@@ -332,10 +328,10 @@ nnoremap <silent> <Space>y :<C-u>CocList -A --normal yank<CR>
 nmap ts <Plug>(coc-translator-p)
 
 " === coc-lists
-nnoremap <silent> <C-f> :CocList files<CR>
-nnoremap <silent> <C-p> :CocList grep<CR>
-nnoremap <silent> <C-w> :<C-u>CocList --normal buffers<CR>
-nnoremap <silent> <C-s> :CocList lines<CR>
+nnoremap <silent> <A-f> :CocList files<CR>
+nnoremap <silent> <A-p> :CocList grep<CR>
+nnoremap <silent> <A-w> :<C-u>CocList --normal buffers<CR>
+nnoremap <silent> <A-s> :CocList lines<CR>
 nnoremap <silent> <Space>sc :CocList vimcommands<CR>
 nnoremap <silent> <Space>sa :<C-u>CocList --normal tasks<CR>
 nnoremap <silent> <Space>st :<C-u>CocList --normal floaterm<CR>
@@ -401,17 +397,17 @@ endfunc
 " ===
 " === fzf.vim
 " ===
-"nnoremap <C-f> :Files<CR>
-"nnoremap <C-p> :Rg<CR>
-"nnoremap <C-w> :Buffers<CR>
-"nnoremap <C-s> :BLines<CR>
-"nnoremap <C-c> :Commands<CR>
+"nnoremap <A-f> :Files<CR>
+"nnoremap <A-p> :Rg<CR>
+"nnoremap <A-w> :Buffers<CR>
+"nnoremap <A-s> :BLines<CR>
+"nnoremap <A-c> :Commands<CR>
 "command! -bang -nargs=* Rg call fzf#vim#grep('rg --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 " ===
 " === lazygit.nvim
 " ===
-nnoremap <silent> <C-g> :LazyGit<CR>
+nnoremap <silent> <A-g> :LazyGit<CR>
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 1.0 " scaling factor for floating window
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
@@ -426,9 +422,9 @@ let g:rnvimr_draw_border = 0
 highlight link RnvimrNormal CursorLine
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
+            \ '<A-t>': 'NvimEdit tabedit',
+            \ '<A-x>': 'NvimEdit split',
+            \ '<A-v>': 'NvimEdit vsplit',
             \ 'gw': 'JumpNvimCwd',
             \ }
 let g:rnvimr_layout = { 'relative': 'editor',
@@ -452,8 +448,8 @@ let g:VM_maps = {}
 let g:VM_custom_motions = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
 let g:VM_maps['i'] = 'k'
 let g:VM_maps['I'] = 'K'
-let g:VM_maps['Find Under'] = '<C-k>'
-let g:VM_maps['Find Subword Under'] = '<C-k>'
+let g:VM_maps['Find Under'] = '<A-k>'
+let g:VM_maps['Find Subword Under'] = '<A-k>'
 let g:VM_maps["Select Cursor Down"] = 'E'
 let g:VM_maps["Select Cursor Up"] = 'U'
 let g:VM_maps['Find Next'] = ''
@@ -476,7 +472,7 @@ let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 " ===
 let g:AutoPairsShortcutToggle = ''
 let g:AutoPairsShortcutJump = ''
-let g:AutoPairsShortcutFastWrap = '<M-w>'
+let g:AutoPairsShortcutFastWrap = '<A-w>'
 let g:AutoPairsMapCh = 0
 let g:AutoPairsFlyMode = 1
 
@@ -491,36 +487,21 @@ autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 let g:indentLine_char = '|'
 
 " ===
-" === vim-move
-" ===
-vmap <M-e> <Plug>MoveBlockDown
-vmap <M-u> <Plug>MoveBlockUp
-vmap <M-n> <Plug>MoveBlockLeft
-vmap <M-i> <Plug>MoveBlockRight
-nmap <M-e> <Plug>MoveLineDown
-nmap <M-u> <Plug>MoveLineUp
-nmap <M-n> <Plug>MoveCharLeft
-nmap <M-i> <Plug>MoveCharRight
-
-" ===
 " === vim-floaterm
 " ===
 let g:floaterm_width = 1.0
 let g:floaterm_height = 1.0
-let g:floaterm_keymap_new = '<M-o>'
-let g:floaterm_keymap_prev = '<M-l>'
-let g:floaterm_keymap_next = '<M-y>'
-let g:floaterm_keymap_toggle = '<M-t>'
-let g:floaterm_keymap_kill = '<M-c>'
+let g:floaterm_keymap_new = '<C-k>'
+let g:floaterm_keymap_prev = '<C-n>'
+let g:floaterm_keymap_next = '<C-e>'
+let g:floaterm_keymap_toggle = '<C-t>'
+let g:floaterm_keymap_kill = '<C-q>'
 nnoremap <silent> stn :FloatermNew --wintype=vsplit --position=left --width=0.5<CR>
 nnoremap <silent> ste :FloatermNew --wintype=split --position=bottom --height=0.5<CR>
 nnoremap <silent> stu :FloatermNew --wintype=split --position=top --height=0.5<CR>
 nnoremap <silent> sti :FloatermNew --wintype=vsplit --position=right --width=0.5<CR>
-tnoremap <M-x> <C-\><C-n>
-tnoremap <M-n> <C-\><C-n><C-w>h
-tnoremap <M-e> <C-\><C-n><C-w>j
-tnoremap <M-u> <C-\><C-n><C-w>k
-tnoremap <M-i> <C-\><C-n><C-w>l
+tnoremap <C-x> <C-\><C-n>
+tnoremap <C-w> <C-\><C-n><C-w>w
 
 source ~/.config/nvim/config/md-snippets.vim
 
