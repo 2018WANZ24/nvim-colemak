@@ -108,7 +108,10 @@ nnoremap srh <C-w>b<C-w>K
 nnoremap srv <C-w>b<C-w>H
 nnoremap sf <C-w>w
 nnoremap sc <C-w>o
-nnoremap sq <C-w>j:q<CR>
+nnoremap sqn <C-w>h:q<CR>
+nnoremap sqe <C-w>j:q<CR>
+nnoremap squ <C-w>k:q<CR>
+nnoremap sqi <C-w>l:q<CR>
 
 " Tab
 nnoremap <silent> ss :tabe<CR>
