@@ -80,6 +80,7 @@ nnoremap yp y%
 nnoremap vv ^v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
+nnoremap Q q
 nnoremap S :w<CR>
 nnoremap <A-s> :source $HOME/.config/nvim/init.vim<CR>
 nnoremap <C-c> :cd<Space>
