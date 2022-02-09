@@ -51,7 +51,7 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 | `<Space><CR>` | No highlight search                                     |
 | `q`           | Quit                                                    |
 | `S`           | Save                                                    |
-| `<M-s>`       | Source nvim configuration file                          |
+| `<A-s>`       | Source nvim configuration file                          |
 
 * Cursor down: `'` + `a/r/s/t/d/h/n/e/i/o` (as `1/2/3/4/5/6/7/8/9/0`)
 * Cursor up: `[` + `a/r/s/t/d/h/n/e/i/o` (as `1/2/3/4/5/6/7/8/9/0`)
@@ -102,13 +102,13 @@ In Normal mode:
 In terminal mode:
 | Shortcut | Action                |
 |----------|-----------------------|
-| `<M-x>`  | Normal mode           |
-| `<M-c>`  | Quit current terminal |
-| `<M-n>`  | Go one window left    |
-| `<M-e>`  | Go one window below   |
-| `<M-u>`  | Go one window above   |
-| `<M-i>`  | Go one window right   |
-| `<M-t>`  | Go to previous tab    |
+| `<A-x>`  | Normal mode           |
+| `<A-c>`  | Quit current terminal |
+| `<A-n>`  | Go one window left    |
+| `<A-e>`  | Go one window below   |
+| `<A-u>`  | Go one window above   |
+| `<A-i>`  | Go one window right   |
+| `<A-t>`  | Go to previous tab    |
 
 
 #### 1.5 Others

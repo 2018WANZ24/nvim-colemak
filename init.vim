@@ -51,33 +51,34 @@ noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
 
-noremap! <A-n> <Left>
-noremap! <A-e> <Down>
-noremap! <A-u> <Up>
-noremap! <A-i> <Right>
-noremap! <A-a> <Home>
-noremap! <A-o> <End>
+inoremap <C-n> <Left>
+inoremap <C-e> <Down>
+inoremap <C-u> <Up>
+cnoremap <C-l> <Up>
+cnoremap <C-y> <Down>
+cnoremap <C-n> <Left>
+cnoremap <C-e> <Right>
+noremap! <C-a> <Home>
+noremap! <C-o> <End>
 
-noremap <A-u> <C-b>
-noremap <A-e> <C-f>
-noremap <A-n> <C-u>
-noremap <A-i> <C-d>
+noremap <C-u> <C-b>
+noremap <C-e> <C-f>
 noremap N ^
-noremap I $
+nnoremap I $
+vnoremap I $h
 noremap W 5w
 noremap B 5b
-noremap > >>
-noremap < <<
+nnoremap > >>
+nnoremap < <<
 noremap ` ~
 noremap ; :
 nnoremap dy d%
 nnoremap vv ^v$h
-nnoremap <A-v> v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
 nnoremap S :w<CR>
-nnoremap <C-s> :source $HOME/.config/nvim/init.vim<CR>
-nnoremap <A-c> :cd<Space>
+nnoremap <A-s> :source $HOME/.config/nvim/init.vim<CR>
+nnoremap <C-c> :cd<Space>
 
 " Window
 nnoremap s <nop>
@@ -108,10 +109,6 @@ nnoremap srh <C-w>b<C-w>K
 nnoremap srv <C-w>b<C-w>H
 nnoremap sf <C-w>w
 nnoremap sc <C-w>o
-nnoremap sqn <C-w>h:q<CR>
-nnoremap sqe <C-w>j:q<CR>
-nnoremap squ <C-w>k:q<CR>
-nnoremap sqi <C-w>l:q<CR>
 
 " Tab
 nnoremap <silent> ss :tabe<CR>
@@ -158,11 +155,11 @@ Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 Plug 'kdheepak/lazygit.nvim'
 Plug 'kevinhwang91/rnvimr'
-Plug 'preservim/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
@@ -262,7 +259,7 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
 	\ 'coc-yank',]
 
-inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Right>"
 
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
@@ -306,16 +303,16 @@ omap kc <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-nnoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
-nnoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
-inoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-]>"
-inoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-[>"
-vnoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
-vnoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
+nnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
+nnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
+inoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-]>"
+inoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-[>"
+vnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
+vnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
 
 " === coc-snippets
-let g:coc_snippet_next = '<A-i>'
-let g:coc_snippet_prev = '<A-n>'
+let g:coc_snippet_prev = '<C-l>'
+let g:coc_snippet_next = '<C-y>'
 let g:snips_author = '2018WANZ24'
 
 " === coc-flutter-tools
@@ -325,32 +322,34 @@ nnoremap <silent> <Space>ol :CocCommand flutter.toggleOutline<CR>
 nnoremap <silent> <Space>t :CocCommand explorer<CR>
 
 " === coc-yank
-nnoremap <silent> <Space>y :<C-u>CocList -A --normal yank<CR>
+nnoremap <silent> <Space>y :CocList -A --normal yank<CR>
 
 " === coc-translator
 nmap ts <Plug>(coc-translator-p)
 
 " === coc-lists
-nnoremap <silent> <A-f> :CocList files<CR>
-nnoremap <silent> <A-p> :CocList grep<CR>
-nnoremap <silent> <A-w> :<C-u>CocList --normal buffers<CR>
-nnoremap <silent> <A-s> :CocList lines<CR>
-nnoremap <silent> <Space>sc :CocList vimcommands<CR>
-nnoremap <silent> <Space>sa :<C-u>CocList --normal tasks<CR>
-nnoremap <silent> <Space>st :<C-u>CocList --normal floaterm<CR>
+nnoremap <silent> <Space>f :CocList files<CR>
+nnoremap <silent> <Space>p :CocList grep<CR>
+nnoremap <silent> <Space>w :CocList --normal buffers<CR>
+nnoremap <silent> <Space>s :CocList -I --ignore-case lines<CR>
+nnoremap <silent> <Space>oc :CocList vimcommands<CR>
+nnoremap <silent> <Space>oa :CocList --normal tasks<CR>
+nnoremap <silent> <Space>ot :CocList --normal floaterm<CR>
 
 " === coc-git
 nmap g- <Plug>(coc-git-prevchunk)
 nmap g= <Plug>(coc-git-nextchunk)
-nmap gf <Plug>(coc-git-prevconflict)
-nmap gF <Plug>(coc-git-nextconflict)
-nmap H <Plug>(coc-git-chunkinfo)
+nmap gF <Plug>(coc-git-prevconflict)
+nmap gf <Plug>(coc-git-nextconflict)
+nmap gh <Plug>(coc-git-chunkinfo)
 omap kg <Plug>(coc-git-chunk-inner)
 xmap kg <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
 nnoremap <silent> gu :CocCommand git.chunkUndo<CR>
 nnoremap <silent> gs :CocCommand git.chunkStage<CR>
+nnoremap <silent> zg :CocCommand git.foldUnchanged<CR>
+nnoremap <silent> gp :CocCommand git.push<CR>
 
 " ===
 " === asynctasks.vim
@@ -363,8 +362,6 @@ noremap <silent> <Space>rf :AsyncTask file-run<CR>
 noremap <silent> <Space>bf :AsyncTask file-build<CR>
 noremap <silent> <Space>rp :AsyncTask project-run<CR>
 noremap <silent> <Space>bp :AsyncTask project-build<CR>
-noremap gpu :AsyncRun -mode=term -pos=floaterm git push -u origin master<CR>
-noremap gpf :AsyncRun -mode=term -pos=floaterm git push -f origin master<CR>
 
 " ===
 " === vista.vim
@@ -400,17 +397,17 @@ endfunc
 " ===
 " === fzf.vim
 " ===
-"nnoremap <A-f> :Files<CR>
-"nnoremap <A-p> :Rg<CR>
-"nnoremap <A-w> :Buffers<CR>
-"nnoremap <A-s> :BLines<CR>
-"nnoremap <A-c> :Commands<CR>
-"command! -bang -nargs=* Rg call fzf#vim#grep('rg --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
+" nnoremap <Space>f :Files<CR>
+" nnoremap <Space>p :Rg<CR>
+" nnoremap <Space>w :Buffers<CR>
+" nnoremap <Space>s :BLines<CR>
+" nnoremap <Space>oc :Commands<CR>
+" command! -bang -nargs=* Rg call fzf#vim#grep('rg --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview(), <bang>0)
 
 " ===
 " === lazygit.nvim
 " ===
-nnoremap <silent> <A-g> :LazyGit<CR>
+nnoremap <silent> <Space>g :LazyGit<CR>
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 1.0 " scaling factor for floating window
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
@@ -425,10 +422,11 @@ let g:rnvimr_draw_border = 0
 highlight link RnvimrNormal CursorLine
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_action = {
-            \ '<A-t>': 'NvimEdit tabedit',
-            \ '<A-x>': 'NvimEdit split',
-            \ '<A-v>': 'NvimEdit vsplit',
+            \ '<C-t>': 'NvimEdit tabedit',
+            \ '<C-s>': 'NvimEdit split',
+            \ '<C-x>': 'NvimEdit vsplit',
             \ 'gw': 'JumpNvimCwd',
+            \ 'yw': 'EmitRangerCwd'
             \ }
 let g:rnvimr_layout = { 'relative': 'editor',
             \ 'width': &columns,
@@ -439,9 +437,10 @@ let g:rnvimr_layout = { 'relative': 'editor',
 let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 
 " ===
-" === nerdcommenter
+" === tcomment_vim
 " ===
-map mc <Plug>NERDCommenterToggle
+noremap mc :TComment<CR>
+let g:tcomment_textobject_inlinecomment = ''
 
 " ===
 " === vim-visual-multi
@@ -451,8 +450,8 @@ let g:VM_maps = {}
 let g:VM_custom_motions = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
 let g:VM_maps['i'] = 'k'
 let g:VM_maps['I'] = 'K'
-let g:VM_maps['Find Under'] = '<A-k>'
-let g:VM_maps['Find Subword Under'] = '<A-k>'
+let g:VM_maps['Find Under'] = '<C-k>'
+let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps["Select Cursor Down"] = 'E'
 let g:VM_maps["Select Cursor Up"] = 'U'
 let g:VM_maps['Find Next'] = ''
@@ -467,7 +466,7 @@ let g:Hexokinase_highlighters = ['foregroundfull']
 " ===
 " === vim-table-mode
 " ===
-nnoremap <Leader>tm :TableModeToggle<CR>
+nnoremap <Leader>t :TableModeToggle<CR>
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 
 " ===
@@ -494,17 +493,17 @@ let g:indentLine_char = '|'
 " ===
 let g:floaterm_width = 1.0
 let g:floaterm_height = 1.0
-let g:floaterm_keymap_new = '<C-k>'
-let g:floaterm_keymap_prev = '<C-n>'
-let g:floaterm_keymap_next = '<C-e>'
-let g:floaterm_keymap_toggle = '<C-t>'
-let g:floaterm_keymap_kill = '<C-q>'
+let g:floaterm_keymap_new = '<A-u>'
+let g:floaterm_keymap_prev = '<A-n>'
+let g:floaterm_keymap_next = '<A-i>'
+let g:floaterm_keymap_toggle = '<A-e>'
+let g:floaterm_keymap_kill = '<A-q>'
 nnoremap <silent> stn :FloatermNew --wintype=vsplit --position=left --width=0.5<CR>
 nnoremap <silent> ste :FloatermNew --wintype=split --position=bottom --height=0.5<CR>
 nnoremap <silent> stu :FloatermNew --wintype=split --position=top --height=0.5<CR>
 nnoremap <silent> sti :FloatermNew --wintype=vsplit --position=right --width=0.5<CR>
-tnoremap <C-x> <C-\><C-n>
-tnoremap <C-w> <C-\><C-n><C-w>w
+tnoremap <A-x> <C-\><C-n>
+tnoremap <A-w> <C-\><C-n><C-w>w
 
 source ~/.config/nvim/config/md-snippets.vim
 
