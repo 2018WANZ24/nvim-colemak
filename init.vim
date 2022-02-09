@@ -52,14 +52,11 @@ noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
 
-inoremap <C-n> <Left>
 inoremap <C-e> <Down>
 inoremap <C-u> <Up>
 cnoremap <C-l> <Up>
 cnoremap <C-y> <Down>
-cnoremap <C-n> <Left>
-cnoremap <C-e> <Right>
-noremap! <C-a> <Home>
+noremap! <C-n> <Home>
 noremap! <C-o> <End>
 
 noremap <C-u> <C-b>
@@ -73,13 +70,11 @@ nnoremap > >>
 nnoremap < <<
 noremap ` ~
 noremap ; :
-nnoremap dp d%
-nnoremap vp v%
-nnoremap cp c%
-nnoremap yp y%
+noremap j %
 nnoremap vv ^v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
+nnoremap Q q
 nnoremap S :w<CR>
 nnoremap <A-s> :source $HOME/.config/nvim/init.vim<CR>
 nnoremap <C-c> :cd<Space>
@@ -113,6 +108,7 @@ nnoremap srh <C-w>b<C-w>K
 nnoremap srv <C-w>b<C-w>H
 nnoremap sf <C-w>w
 nnoremap sc <C-w>o
+nnoremap <silent> sq <C-w>w:q<CR>
 
 " Tab
 nnoremap <silent> ss :tabe<CR>
@@ -131,7 +127,7 @@ nmap sy <Plug>AirlineSelectNextTab
 nnoremap <silent> sml :-tabmove<CR>
 nnoremap <silent> smy :+tabmove<CR>
 
-noremap 34 :call CompileRunGcc()<CR>
+noremap <Space>rr :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'markdown'
@@ -263,7 +259,7 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
 	\ 'coc-yank',]
 
-inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Right>"
+inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
@@ -350,7 +346,7 @@ omap kg <Plug>(coc-git-chunk-inner)
 xmap kg <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
-nnoremap <silent> gu :CocCommand git.chunkUndo<CR>
+nnoremap <silent> gl :CocCommand git.chunkUndo<CR>
 nnoremap <silent> gs :CocCommand git.chunkStage<CR>
 nnoremap <silent> zg :CocCommand git.foldUnchanged<CR>
 nnoremap <silent> gp :CocCommand git.push<CR>
@@ -362,10 +358,10 @@ let g:asyncrun_open = 6
 let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 let g:asynctasks_term_rows = 10
 let g:asynctasks_term_cols = 80
-noremap <silent> 32 :AsyncTask file-run<CR>
-noremap <silent> 22 :AsyncTask file-build<CR>
-noremap <silent> 33 :AsyncTask project-run<CR>
-noremap <silent> 23 :AsyncTask project-build<CR>
+noremap <silent> <Space>rf :AsyncTask file-run<CR>
+noremap <silent> <Space>rbf :AsyncTask file-build<CR>
+noremap <silent> <Space>rp :AsyncTask project-run<CR>
+noremap <silent> <Space>rbp :AsyncTask project-build<CR>
 
 " ===
 " === vista.vim
@@ -411,7 +407,7 @@ endfunc
 " ===
 " === lazygit.nvim
 " ===
-nnoremap <silent> <Space>g :LazyGit<CR>
+nnoremap <silent> go :LazyGit<CR>
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 1.0 " scaling factor for floating window
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters

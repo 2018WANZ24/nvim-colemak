@@ -164,47 +164,6 @@
   "git.removedSign.text": "▎",
   "git.topRemovedSign.text": "▔",
   "git.changeRemovedSign.text": "▎",
-  "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": [
-        "c",
-        "cc",
-        "cpp",
-        "c++",
-        "objc",
-        "objcpp"
-      ],
-      "rootPatterns": [
-        "compile_commands.json",
-        ".git/",
-        ".hg/",
-        ".vscode",
-        ".vim/"
-      ],
-      "initializationOptions": {
-        "highlight": {
-          "lsRanges": true
-        },
-        "cache": {
-          "directory": "/tmp/ccls"
-        },
-        "clang": {
-          "resourceDir": "/usr/bin/clang"
-        },
-        "completion": {
-          "detailedLable": true,
-          "placeholder": true
-        },
-        "index": {
-          "onChange": false,
-          "initialNoLinkage": true,
-          "threads": 2
-        },
-        "compilationDatabaseDirectory": ".vscode/"
-      }
-    }
-  },
   "go.goplsUseDaemon": false,
   "go.goplsOptions": {
     "completeUnimported": true
