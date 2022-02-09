@@ -47,6 +47,7 @@ noremap l u
 noremap k i
 noremap K I
 noremap h e
+noremap H E
 noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
@@ -72,7 +73,10 @@ nnoremap > >>
 nnoremap < <<
 noremap ` ~
 noremap ; :
-nnoremap dy d%
+nnoremap dp d%
+nnoremap vp v%
+nnoremap cp c%
+nnoremap yp y%
 nnoremap vv ^v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
@@ -127,7 +131,7 @@ nmap sy <Plug>AirlineSelectNextTab
 nnoremap <silent> sml :-tabmove<CR>
 nnoremap <silent> smy :+tabmove<CR>
 
-noremap <Space>rr :call CompileRunGcc()<CR>
+noremap 34 :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'markdown'
@@ -176,7 +180,7 @@ call plug#end()
 " ===
 " === gruvbox
 " ===
-"color gruvbox
+" color gruvbox
 
 " ===
 " === nvim-deus
@@ -186,7 +190,7 @@ color deus
 " ===
 " === onedark.vim
 " ===
-"color onedark
+" color onedark
 
 " ===
 " === vim-airline
@@ -358,18 +362,18 @@ let g:asyncrun_open = 6
 let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 let g:asynctasks_term_rows = 10
 let g:asynctasks_term_cols = 80
-noremap <silent> <Space>rf :AsyncTask file-run<CR>
-noremap <silent> <Space>bf :AsyncTask file-build<CR>
-noremap <silent> <Space>rp :AsyncTask project-run<CR>
-noremap <silent> <Space>bp :AsyncTask project-build<CR>
+noremap <silent> 32 :AsyncTask file-run<CR>
+noremap <silent> 22 :AsyncTask file-build<CR>
+noremap <silent> 33 :AsyncTask project-run<CR>
+noremap <silent> 23 :AsyncTask project-build<CR>
 
 " ===
 " === vista.vim
 " ===
 nnoremap <silent> <Space>v :Vista!!<CR>
-"nnoremap <silent> <C-t> :silent! Vista finder coc<CR>
+" nnoremap <silent> <C-t> :silent! Vista finder coc<CR>
 let g:vista_default_executive = 'coc'
-"let g:vista_fzf_preview = ['right:50%']
+" let g:vista_fzf_preview = ['right:50%']
 let g:vista_sidebar_open_cmd = 'set splitright|30vsplit'
 let g:vista_echo_cursor = 0
 let g:vista_update_on_text_changed = 1
@@ -423,8 +427,8 @@ highlight link RnvimrNormal CursorLine
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_action = {
             \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-s>': 'NvimEdit split',
-            \ '<C-x>': 'NvimEdit vsplit',
+            \ '<C-x>': 'NvimEdit split',
+            \ '<C-p>': 'NvimEdit vsplit',
             \ 'gw': 'JumpNvimCwd',
             \ 'yw': 'EmitRangerCwd'
             \ }
@@ -439,8 +443,9 @@ let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 " ===
 " === tcomment_vim
 " ===
-noremap mc :TComment<CR>
 let g:tcomment_textobject_inlinecomment = ''
+noremap <silent> mc :TComment<CR>
+let g:tcomment_opleader1 = 'mv'
 
 " ===
 " === vim-visual-multi
