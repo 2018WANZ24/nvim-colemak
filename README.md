@@ -24,6 +24,7 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 ## Keyboard Shortcuts
 ### 1 Basic Editor Features
 #### 1.1 Basic Remappings
+
 | Shortcut      | Action                                             |
 |---------------|----------------------------------------------------|
 | `n`           | Cursor left                                        |
@@ -66,6 +67,7 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 * Cursor up: `[` + `a/r/s/t/d/h/n/e/i/o` (as `1/2/3/4/5/6/7/8/9/0`)
 
 #### 1.2 Window Management
+
 | Shortcut             | Action                                        |
 |----------------------|-----------------------------------------------|
 | `sN`                 | Split left                                    |
@@ -90,6 +92,7 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 | `sq`                 | Close next window                             |
 
 #### 1.3 Tab Management
+
 | Shortcut              | Action                |
 |-----------------------|-----------------------|
 | `ss`                  | New tab               |
@@ -100,6 +103,7 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 | `smy`                 | Move tab to the right |
 
 #### 1.4 Others
+
 | Shortcut    | Action                                    |
 |-------------|-------------------------------------------|
 | `<Space>rr` | Run                                       |
