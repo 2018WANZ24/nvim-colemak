@@ -24,34 +24,41 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 ## Keyboard Shortcuts
 ### 1 Basic Editor Features
 #### 1.1 Basic Remappings
-| Shortcut      | Action                                                  |
-|---------------|---------------------------------------------------------|
-| `n`           | Cursor left                                             |
-| `e`           | Cursor down                                             |
-| `u`           | Cursor up                                               |
-| `i`           | Cursor right                                            |
-| `l`           | Undo                                                    |
-| `k`           | Insert mode                                             |
-| `K`           | Insert before the first non-blank character of the line |
-| `h`           | Go to end of the word                                   |
-| `-`           | Search previous                                         |
-| `=`           | Search next                                             |
-| `E`           | Next page                                               |
-| `U`           | Previous page                                           |
-| `N`           | Cursor to the first non-blank character of the line     |
-| `I`           | Cursor to the end of the line                           |
-| `W`           | 5w                                                      |
-| `B`           | 5b                                                      |
-| `>`           | Indent                                                  |
-| `<`           | Un-indent                                               |
-| `             | Toggle case                                             |
-| `;`           | Command mode                                            |
-| `dy`          | Delete find pair                                        |
-| `vv`          | Select non-blank characters of the line except `\n`     |
-| `<Space><CR>` | No highlight search                                     |
-| `q`           | Quit                                                    |
-| `S`           | Save                                                    |
-| `<A-s>`       | Source nvim configuration file                          |
+| Shortcut      | Action                                             |
+|---------------|----------------------------------------------------|
+| `n`           | Cursor left                                        |
+| `e`           | Cursor down                                        |
+| `u`           | Cursor up                                          |
+| `i`           | Cursor right                                       |
+| `l`           | Undo                                               |
+| `k`           | Insert mode                                        |
+| `K`           | Insert text before the first non-blank in the line |
+| `h`           | Forward to the end of word                         |
+| `H`           | Forward to the end of WORD                         |
+| `-`           | Search previous                                    |
+| `=`           | Search next                                        |
+| `<C-l>`       | Previous command history (Command mode)            |
+| `<C-y>`       | Next command history (Command mode)                |
+| `<C-n>`       | Go to start of the line                            |
+| `<C-o>`       | Go to end of the line                              |
+| `<C-u>`       | Previous page                                      |
+| `<C-e>`       | Next page                                          |
+| `N`           | Cursor to the first non-blank of the line          |
+| `I`           | Cursor to the end of the line                      |
+| `W`           | Move cursor 5 words forward                        |
+| `B`           | Move cursor 5 words backward                       |
+| `>`           | Indent                                             |
+| `<`           | Un-indent                                          |
+| `             | Toggle case                                        |
+| `;`           | Command mode                                       |
+| `j`           | Go to pair                                         |
+| `vv`          | Select non-blank of the line except `\n`           |
+| `<Space><CR>` | No highlight search                                |
+| `Q`           | Record typed characters into register              |
+| `q`           | Quit                                               |
+| `S`           | Save                                               |
+| `<A-s>`       | Source nvim configuration file                     |
+| `<C-c>`       | cd                                                 |
 
 * Cursor down: `'` + `a/r/s/t/d/h/n/e/i/o` (as `1/2/3/4/5/6/7/8/9/0`)
 * Cursor up: `[` + `a/r/s/t/d/h/n/e/i/o` (as `1/2/3/4/5/6/7/8/9/0`)
@@ -78,143 +85,137 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 | `srv`                | Rotate splits and arrange splits vertically   |
 | `sf`                 | Go to next window                             |
 | `sc`                 | Close other windows                           |
+| `sq`                 | Close next window                             |
 
 #### 1.3 Tab Management
 | Shortcut              | Action                |
 |-----------------------|-----------------------|
-| `tu`                  | New tab               |
+| `ss`                  | New tab               |
 | `<Leader>` + `number` | Go to tab by number   |
-| `tn`                  | Go to previous tab    |
-| `ti`                  | Go to next tab        |
-| `tmn`                 | Move tab to the left  |
-| `tmi`                 | Move tab to the right |
+| `sl`                  | Go to previous tab    |
+| `sy`                  | Go to next tab        |
+| `sml`                 | Move tab to the left  |
+| `smy`                 | Move tab to the right |
 
-#### 1.4 Terminal
-In Normal mode:
-| Shortcut | Action                     |
-|----------|----------------------------|
-| `stn`    | Open terminal on the left  |
-| `ste`    | Open terminal below        |
-| `stu`    | Open terminal above        |
-| `sti`    | Open terminal on the right |
-| `stt`    | Open terminal in a new tab |
-
-In terminal mode:
-| Shortcut | Action                |
-|----------|-----------------------|
-| `<A-x>`  | Normal mode           |
-| `<A-c>`  | Quit current terminal |
-| `<A-n>`  | Go one window left    |
-| `<A-e>`  | Go one window below   |
-| `<A-u>`  | Go one window above   |
-| `<A-i>`  | Go one window right   |
-| `<A-t>`  | Go to previous tab    |
-
-
-#### 1.5 Others
-| Shortcut   | Action |
-|------------|--------|
-| `<Space>r` | Run    |
+#### 1.4 Others
+| Shortcut    | Action                                    |
+|-------------|-------------------------------------------|
+| `<Space>rr` | Run                                       |
+| `,r`        | Insert placeholder <++> (Insert mode)     |
+| `,f`        | Go to next placeholder <++> (Insert mode) |
 
 ### 2 Plugins
 The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 
-#### 2.1 Language Servers
-* [coc.nvim](https://github.com/neoclide/coc.nvim) for AutoCompletion
+* [gruvbox](https://github.com/morhetz/gruvbox), [nvim-deus](https://github.com/theniceboy/nvim-deus) and [onedark](https://github.com/joshdick/onedark.vim) (colorthemes)
 
-| Shortcut                  | Action                                                                                |
-|---------------------------|---------------------------------------------------------------------------------------|
-| `<C-e>`/`<Tab>`           | Next completion                                                                       |
-| `<C-u>`/`Shift` + `<Tab>` | Previous completion                                                                   |
-| `<CR>`                    | Complete                                                                              |
-| `g[`                      | Go to previous diagnostic                                                             |
-| `g]`                      | Go to next diagnostic                                                                 |
-| `gd`                      | Go to definition                                                                      |
-| `gy`                      | Go to type definition                                                                 |
-| `gi`                      | Go to implementation                                                                  |
-| `gr`                      | Go to references                                                                      |
-| `<Space>h`                | Show documentation                                                                    |
-| `mr`                      | Rename                                                                                |
-| `maf`                     | Format selected                                                                       |
-| `maw`                     | Code actions                                                                          |
-| `<operation>kf`           | Operation for what is in a function                                                   |
-| `<operation>af`           | Operation for the whole function                                                      |
-| `<operation>kc`           | Operation for what is in a class                                                      |
-| `<operation>ac`           | Operation for the whole class                                                         |
-| `<C-]>`/`<C-[>`           | Scroll a floating window                                                              |
-| `<C-e>`                   | Jump to next snippets placeholder (on insert mode)                                    |
-| `<C-n>`                   | Jump to previous snippets placeholder (on insert mode)                                |
-| `tt`                      | Toggle file explorer ([coc-explorer](https://github.com/weirongxu/coc-explorer))      |
-| `<Space>y`                | Show yank history ([coc-yank](https://github.com/neoclide/coc-yank))                  |
-| `<Space>ol`               | Show flutter outline (**Only works in dart files**)                                   |
-| `ts`                      | Translate current word ([coc-translator](https://github.com/voldikss/coc-translator)) |
+* [vim-airline](https://github.com/vim-airline/vim-airline) (statusline) and [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes) (vim-airline colorthemes)
 
-* [vim-snippets](https://github.com/honza/vim-snippets) for snippets
+* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) (highlight)
 
-* [dart-vim-plugin](https://github.com/dart-lang/dart-vim-plugin) for dart
+* [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
 
-* [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) for markdown
+* [coc.nvim](https://github.com/neoclide/coc.nvim)
 
-#### 2.2 Other Plugins
+| Shortcut        | Action                                              |
+|-----------------|-----------------------------------------------------|
+| `<C-e>`         | Next completion                                     |
+| `<C-u>          | Previous completion                                 |
+| `<Tab>`         | Complete                                            |
+| `g[`            | Go to previous diagnostic                           |
+| `g]`            | Go to next diagnostic                               |
+| `gd`            | Go to definition                                    |
+| `gy`            | Go to type definition                               |
+| `gi`            | Go to implementation                                |
+| `gr`            | Go to references                                    |
+| `<Space>h`      | Show documentation                                  |
+| `mr`            | Rename                                              |
+| `maf`           | Format selected                                     |
+| `mas`           | Code actions                                        |
+| `<operation>kf` | Operation for what is in a function                 |
+| `<operation>af` | Operation for the whole function                    |
+| `<operation>kc` | Operation for what is in a class                    |
+| `<operation>ac` | Operation for the whole class                       |
+| `<C-]>`/`<C-[>` | Scroll a floating window                            |
+| `<C-l>`         | Jump to previous snippets placeholder (insert mode) |
+| `<C-y>`         | Jump to next snippets placeholder (insert mode)     |
+| `<Space>ol`     | Show flutter outline (Only works in dart files)     |
+| `<Space>t`      | Toggle file explorer                                |
+| `<Space>y`      | Show yank history                                   |
+| `<A-t>`         | Translate current word                              |
+| `<Space>f`      | Search files in current directory                   |
+| `<Space>p`      | Search contents of files in current directory       |
+| `<Space>w`      | Search buffers                                      |
+| `<Space>s`      | Search contents of lines in current file            |
+| `<Space>oc`     | Search commands                                     |
+| `<Space>oa`     | Search tasks                                        |
+| `<Space>ot`     | Search floaterms                                    |
+| `g-`            | Go to previous git hunk                             |
+| `g=`            | Go to next git hunk                                 |
+| `gF`            | Go to previous git conflict                         |
+| `gf`            | Go to next git conflict                             |
+| `gf`            | Preview current git hunk                            |
+| `<operation>kg` | Operation for what is in a git hunk                 |
+| `<operation>ag` | Operation for the whole git hunk                    |
+| `gl`            | Undo current git hunk                               |
+| `gs`            | Stage current git hunk                              |
+| `zg`            | Fold unchanged (git)                                |
+| `gp`            | Git push                                            |
 
-* [gruvbox](https://github.com/morhetz/gruvbox) and [nvim-deus](https://github.com/theniceboy/nvim-deus) colorthemes
+* [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)
 
-* [vim-airline](https://github.com/vim-airline/vim-airline) for statusline and [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes) vim-airline colorthemes
+* [asynctasks.vim](https://github.com/skywind3000/asynctasks.vim)
 
-* [vim-gitgutter](https://github.com/airblade/vim-gitgutter) (Show git status)
+| Shortcut     | Action                |
+|--------------|-----------------------|
+| `<Space>rf`  | Run current file      |
+| `<Space>rbf` | Build current flie    |
+| `<Space>rp`  | Run current project   |
+| `<Space>rbp` | Build current project |
 
-| Shortcut | Action               |
-|----------|----------------------|
-| `gf`     | GitGutterFold        |
-| `H`      | Preview current hunk |
-| `g-`     | Go to next hunk      |
-| `g=`     | Go to previous hunk  |
+* [vim-snippets](https://github.com/honza/vim-snippets)
+
+* [markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim)
 
 * [vista.vim](https://github.com/liuchengxu/vista.vim)
 
 | Shortcut   | Action         |
 |------------|----------------|
 | `<Space>v` | Toggle taglist |
-| `<C-t>`    | Search tags    |
 
 * [undotree](https://github.com/mbbill/undotree)
 
-| Shortcut | Action          |
-|----------|-----------------|
-| `L`     | Toggle undotree |
-
-* [fzf](http://github.com/junegunn/fzf) and [fzf.vim](https://github.com/junegunn/fzf.vim)
-
-| Shortcut | Action                                        |
-|----------|-----------------------------------------------|
-| `<C-p>`  | Search files in current directory             |
-| `<C-f>`  | Search contents of files in current directory |
-| `<C-w>`  | Search buffers                                |
-| `<C-l>`  | Search contents of lines in current file      |
-| `<C-c>`  | Search commands                               |
+| Shortcut | Action                    |
+|----------|---------------------------|
+| `L`      | Toggle undotree           |
+| `u`      | Move cursor up a state    |
+| `e`      | Move cursor down a state  |
+| `U`      | Move cursor up 5 states   |
+| `E`      | Move cursor down 5 states |
 
 * [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim)
 
 | Shortcut | Action       |
 |----------|--------------|
-| `<C-g>`  | Open lazygit |
+| `go`     | Open lazygit |
 
 * [rnvimr](https://github.com/kevinhwang91/rnvimr)
 
-| Shortcut | Action                                                         |
-|----------|----------------------------------------------------------------|
-| `R`      | Open ranger                                                    |
-| `<C-t>`  | Open a new tab and edit current file in ranger                 |
-| `<C-x>`  | Open a new window horizontally and edit current file in ranger |
-| `<C-v>`  | Open a new window vertically and edit current file in ranger   |
-| `gw`     | Change ranger's cwd to nvim's                                  |
-| `yw`     | Change nvim's cwd to ranger's                                  |
+| Shortcut | Action                             |
+|----------|------------------------------------|
+| `R`      | Open ranger                        |
+| `<C-t>`  | Open the file in a new tab         |
+| `<C-x>`  | Split up and down with the file    |
+| `<C-p>`  | Split left and right with the file |
+| `gw`     | Change ranger's cwd to nvim's      |
+| `yw`     | Change nvim's cwd to ranger's      |
 
-* [nerdcommenter](https://github.com/preservim/nerdcommenter)
+* [tcomment_vim](https://github.com/preservim/nerdcommenter)
 
-| Shortcut | Action                            |
-|----------|-----------------------------------|
-| `mc`     | Comment current line or selection |
+| Shortcut        | Action                            |
+|-----------------|-----------------------------------|
+| `mc`            | Comment current line or selection |
+| `mv``operation` | Comment lines                     |
 
 * [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 
@@ -223,25 +224,42 @@ The vim-visual-multi leader is `,`.
 | Shortcut | Action                        |
 |----------|-------------------------------|
 | `<C-k>`  | Find Under/Find Subword Under |
-| `<C-e>`  | Select Cursor Down            |
-| `<C-u>`  | Select Cursor Up              |
+| `E`      | Select Cursor Down            |
+| `U`      | Select Cursor Up              |
 
 * [vim-hexokinase](https://github.com/RRethy/vim-hexokinase)
 
-* [vim-illuminate](https://github.com/RRethy/vim-illuminate)
-
 * [vim-table-mode](https://github.com/dhruvasagar/vim-table-mode)
-
-| Shortcut    | Action            |
-|-------------|-------------------|
-| `<Space>tm` | Toggle table mode |
 
 * [auto-pairs](https://github.com/jiangmiao/auto-pairs)
 
-* [rainbow](https://github.com/luochen1990/rainbow)
+| Shortcut | Action                          |
+|----------|---------------------------------|
+| `<A-w>`  | Wrap word or pair (insert mode) |
+
+* [vim-after-object](https://github.com/junegunn/vim-after-object)
 
 * [wildfire.vim](https://github.com/gcmt/wildfire.vim)
 
 * [vim-surround](https://github.com/tpope/vim-surround)
 
 * [indentLine](https://github.com/Yggdroot/indentLine)
+
+* [clever-f.vim](https://github.com/rhysd/clever-f.vim)
+
+* [vim-floaterm](https://github.com/voldikss/vim-floaterm)
+
+| Shortcut | Action                   |
+|----------|--------------------------|
+| `<A-u>`  | New floterm              |
+| `<A-e>`  | Toggle floterm           |
+| `<A-n>`  | Previous floterm         |
+| `<A-i>`  | Next floterm             |
+| `<A-q>`  | Kill current floterm     |
+| `stn`    | New floterm on the left  |
+| `ste`    | New floterm below        |
+| `stu`    | New floterm above        |
+| `sti`    | New floterm on the right |
+| `<A-x>`  | Normal mode              |
+| `<A-w>`  | Go to next window        |
+

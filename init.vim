@@ -39,9 +39,9 @@ set undodir=$HOME/.config/nvim/tmp/undo,.
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-noremap u k
 noremap n h
 noremap e j
+noremap u k
 noremap i l
 noremap l u
 noremap k i
@@ -127,6 +127,11 @@ nmap sy <Plug>AirlineSelectNextTab
 nnoremap <silent> sml :-tabmove<CR>
 nnoremap <silent> smy :+tabmove<CR>
 
+source ~/.config/nvim/config/md-snippets.vim
+
+inoremap <buffer> ,r <++>
+inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
+
 noremap <Space>rr :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
@@ -163,13 +168,13 @@ Plug 'tomtom/tcomment_vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
-Plug 'voldikss/vim-floaterm'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-after-object'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 
@@ -325,7 +330,7 @@ nnoremap <silent> <Space>t :CocCommand explorer<CR>
 nnoremap <silent> <Space>y :CocList -A --normal yank<CR>
 
 " === coc-translator
-nmap ts <Plug>(coc-translator-p)
+nmap <A-t> <Plug>(coc-translator-p)
 
 " === coc-lists
 nnoremap <silent> <Space>f :CocList files<CR>
@@ -467,7 +472,6 @@ let g:Hexokinase_highlighters = ['foregroundfull']
 " ===
 " === vim-table-mode
 " ===
-nnoremap <Leader>t :TableModeToggle<CR>
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 
 " ===
@@ -495,9 +499,9 @@ let g:indentLine_char = '|'
 let g:floaterm_width = 1.0
 let g:floaterm_height = 1.0
 let g:floaterm_keymap_new = '<A-u>'
+let g:floaterm_keymap_toggle = '<A-e>'
 let g:floaterm_keymap_prev = '<A-n>'
 let g:floaterm_keymap_next = '<A-i>'
-let g:floaterm_keymap_toggle = '<A-e>'
 let g:floaterm_keymap_kill = '<A-q>'
 nnoremap <silent> stn :FloatermNew --wintype=vsplit --position=left --width=0.5<CR>
 nnoremap <silent> ste :FloatermNew --wintype=split --position=bottom --height=0.5<CR>
@@ -505,8 +509,6 @@ nnoremap <silent> stu :FloatermNew --wintype=split --position=top --height=0.5<C
 nnoremap <silent> sti :FloatermNew --wintype=vsplit --position=right --width=0.5<CR>
 tnoremap <A-x> <C-\><C-n>
 tnoremap <A-w> <C-\><C-n><C-w>w
-
-source ~/.config/nvim/config/md-snippets.vim
 
 let g:terminal_color_0 = '#000000'
 let g:terminal_color_1 = '#FF5555'
