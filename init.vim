@@ -145,6 +145,7 @@ endfunc
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug 'theniceboy/nvim-deus'
 Plug 'joshdick/onedark.vim'
@@ -178,6 +179,7 @@ Plug 'rhysd/clever-f.vim'
 
 call plug#end()
 
+color dracula
 " ===
 " === gruvbox
 " ===
@@ -186,7 +188,7 @@ call plug#end()
 " ===
 " === nvim-deus
 " ===
-color deus
+" color deus
 
 " ===
 " === onedark.vim
