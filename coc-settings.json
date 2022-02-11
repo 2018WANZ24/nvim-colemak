@@ -47,6 +47,7 @@
     "cpp",
     "dart",
     "python",
+    "javascript",
     "go"
   ],
   "yaml.format.enable": true,
