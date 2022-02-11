@@ -37,10 +37,12 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 | `H`           | Forward to the end of WORD                         |
 | `-`           | Search previous                                    |
 | `=`           | Search next                                        |
+| `<C-n>`       | Go to start of the line (insert/command mode)      |
+| `<C-o>`       | Go to end of the line (insert/command mode)        |
+| `<C-u>`       | Up (insert/command mode)                           |
+| `<C-e>`       | Down (insert/command mode)                         |
 | `<C-l>`       | Previous command history (Command mode)            |
 | `<C-y>`       | Next command history (Command mode)                |
-| `<C-n>`       | Go to start of the line                            |
-| `<C-o>`       | Go to end of the line                              |
 | `<C-u>`       | Previous page                                      |
 | `<C-e>`       | Next page                                          |
 | `N`           | Cursor to the first non-blank of the line          |
@@ -117,50 +119,50 @@ The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
 
 * [coc.nvim](https://github.com/neoclide/coc.nvim)
 
-| Shortcut        | Action                                              |
-|-----------------|-----------------------------------------------------|
-| `<C-e>`         | Next completion                                     |
-| `<C-u>          | Previous completion                                 |
-| `<Tab>`         | Complete                                            |
-| `g[`            | Go to previous diagnostic                           |
-| `g]`            | Go to next diagnostic                               |
-| `gd`            | Go to definition                                    |
-| `gy`            | Go to type definition                               |
-| `gi`            | Go to implementation                                |
-| `gr`            | Go to references                                    |
-| `<Space>h`      | Show documentation                                  |
-| `mr`            | Rename                                              |
-| `maf`           | Format selected                                     |
-| `mas`           | Code actions                                        |
-| `<operation>kf` | Operation for what is in a function                 |
-| `<operation>af` | Operation for the whole function                    |
-| `<operation>kc` | Operation for what is in a class                    |
-| `<operation>ac` | Operation for the whole class                       |
-| `<C-]>`/`<C-[>` | Scroll a floating window                            |
-| `<C-l>`         | Jump to previous snippets placeholder (insert mode) |
-| `<C-y>`         | Jump to next snippets placeholder (insert mode)     |
-| `<Space>ol`     | Show flutter outline (Only works in dart files)     |
-| `<Space>t`      | Toggle file explorer                                |
-| `<Space>y`      | Show yank history                                   |
-| `<A-t>`         | Translate current word                              |
-| `<Space>f`      | Search files in current directory                   |
-| `<Space>p`      | Search contents of files in current directory       |
-| `<Space>w`      | Search buffers                                      |
-| `<Space>s`      | Search contents of lines in current file            |
-| `<Space>oc`     | Search commands                                     |
-| `<Space>oa`     | Search tasks                                        |
-| `<Space>ot`     | Search floaterms                                    |
-| `g-`            | Go to previous git hunk                             |
-| `g=`            | Go to next git hunk                                 |
-| `gF`            | Go to previous git conflict                         |
-| `gf`            | Go to next git conflict                             |
-| `gf`            | Preview current git hunk                            |
-| `<operation>kg` | Operation for what is in a git hunk                 |
-| `<operation>ag` | Operation for the whole git hunk                    |
-| `gl`            | Undo current git hunk                               |
-| `gs`            | Stage current git hunk                              |
-| `zg`            | Fold unchanged (git)                                |
-| `gp`            | Git push                                            |
+| Shortcut             | Action                                              |
+|----------------------|-----------------------------------------------------|
+| `<C-e>`              | Next completion                                     |
+| `<C-u>               | Previous completion                                 |
+| `<Tab>`              | Complete                                            |
+| `g[`                 | Go to previous diagnostic                           |
+| `g]`                 | Go to next diagnostic                               |
+| `gd`                 | Go to definition                                    |
+| `gy`                 | Go to type definition                               |
+| `gi`                 | Go to implementation                                |
+| `gr`                 | Go to references                                    |
+| `<Space>h`           | Show documentation                                  |
+| `mr`                 | Rename                                              |
+| `maf`                | Format selected                                     |
+| `mas`                | Code actions                                        |
+| `<operation>` + `kf` | Operation for what is in a function                 |
+| `<operation>` + `af` | Operation for the whole function                    |
+| `<operation>` + `kc` | Operation for what is in a class                    |
+| `<operation>` + `ac` | Operation for the whole class                       |
+| `<C-]>`/`<C-[>`      | Scroll a floating window                            |
+| `<C-l>`              | Jump to previous snippets placeholder (insert mode) |
+| `<C-y>`              | Jump to next snippets placeholder (insert mode)     |
+| `<Space>ol`          | Show flutter outline (Only works in dart files)     |
+| `<Space>t`           | Toggle file explorer                                |
+| `<Space>y`           | Show yank history                                   |
+| `<A-t>`              | Translate current word                              |
+| `<Space>f`           | Search files in current directory                   |
+| `<Space>p`           | Search contents of files in current directory       |
+| `<Space>w`           | Search buffers                                      |
+| `<Space>s`           | Search contents of lines in current file            |
+| `<Space>oc`          | Search commands                                     |
+| `<Space>oa`          | Search tasks                                        |
+| `<Space>ot`          | Search floaterms                                    |
+| `g-`                 | Go to previous git hunk                             |
+| `g=`                 | Go to next git hunk                                 |
+| `gF`                 | Go to previous git conflict                         |
+| `gf`                 | Go to next git conflict                             |
+| `gf`                 | Preview current git hunk                            |
+| `<operation>` + `kg` | Operation for what is in a git hunk                 |
+| `<operation>` + `ag` | Operation for the whole git hunk                    |
+| `gl`                 | Undo current git hunk                               |
+| `gs`                 | Stage current git hunk                              |
+| `zg`                 | Fold unchanged (git)                                |
+| `gp`                 | Git push                                            |
 
 * [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)
 
