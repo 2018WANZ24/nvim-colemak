@@ -176,6 +176,7 @@ Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
+Plug 'godlygeek/tabular'
 
 call plug#end()
 
