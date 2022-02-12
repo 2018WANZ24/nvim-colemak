@@ -234,7 +234,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
-Plug 'theniceboy/nvim-deus'
+Plug '2018WANZ24/nvim-deus'
 Plug 'joshdick/onedark.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
