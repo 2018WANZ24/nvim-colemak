@@ -97,7 +97,6 @@ noremap ; :
 noremap j %
 nnoremap vv ^v$h
 
-nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
 nnoremap Q q
 nnoremap S :w<CR>
@@ -644,3 +643,5 @@ let g:terminal_color_11 = '#F4F99D'
 let g:terminal_color_12 = '#CAA9FA'
 let g:terminal_color_13 = '#FF92D0'
 let g:terminal_color_14 = '#9AEDFE'
+
+nnoremap <silent> <Esc> :nohlsearch<CR>

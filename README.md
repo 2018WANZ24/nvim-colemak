@@ -31,48 +31,48 @@ git clone https://github.com/2018WANZ24/nvim-colemak.git ~/.config/nvim/
 ## Keyboard Shortcuts
 ### 1 Basic Keymaps
 
-| Shortcut      | Action                                             |
-|---------------|----------------------------------------------------|
-| `n`           | Cursor left                                        |
-| `e`           | Cursor down                                        |
-| `u`           | Cursor up                                          |
-| `i`           | Cursor right                                       |
-| `l`           | Undo                                               |
-| `k`           | Insert mode                                        |
-| `K`           | Insert text before the first non-blank in the line |
-| `h`           | Forward to the end of word                         |
-| `H`           | Forward to the end of WORD                         |
-| `-`           | Search previous                                    |
-| `=`           | Search next                                        |
-| `<C-h>`       | Go to start of the line (insert/command mode)      |
-| `<C-o>`       | Go to end of the line (insert/command mode)        |
-| `<C-u>`       | Up (insert mode)                                   |
-| `<C-e>`       | Down (insert mode)                                 |
-| `<C-l>`       | Previous command history (Command mode)            |
-| `<C-y>`       | Next command history (Command mode)                |
-| `<C-u>`       | Previous page                                      |
-| `<C-e>`       | Next page                                          |
-| `N`           | Cursor to the first non-blank of the line          |
-| `I`           | Cursor to the end of the line                      |
-| `W`           | Move cursor 5 words forward                        |
-| `B`           | Move cursor 5 words backward                       |
-| `>`           | Indent                                             |
-| `<`           | Un-indent                                          |
-| `             | Toggle case                                        |
-| `;`           | Command mode                                       |
-| `j`           | Go to pair                                         |
-| `vv`          | Select non-blank of the line except `\n`           |
-| `<Space><CR>` | No highlight search                                |
-| `Q`           | Record typed characters into register              |
-| `q`           | Quit                                               |
-| `S`           | Save                                               |
-| `<A-r>`       | Replace                                            |
-| `<A-s>`       | Source nvim configuration file                     |
-| `<C-c>`       | cd                                                 |
-| `<Leader>ad`  | Find adjacent duplicated word                      |
-| `<Ledder>as`  | Spell check                                        |
-| `,r`          | Insert placeholder `<++>` (Insert mode)            |
-| `,f`          | Go to next placeholder `<++>` (Insert mode)        |
+| Shortcut     | Action                                             |
+|--------------|----------------------------------------------------|
+| `n`          | Cursor left                                        |
+| `e`          | Cursor down                                        |
+| `u`          | Cursor up                                          |
+| `i`          | Cursor right                                       |
+| `l`          | Undo                                               |
+| `k`          | Insert mode                                        |
+| `K`          | Insert text before the first non-blank in the line |
+| `h`          | Forward to the end of word                         |
+| `H`          | Forward to the end of WORD                         |
+| `-`          | Search previous                                    |
+| `=`          | Search next                                        |
+| `<C-h>`      | Go to start of the line (insert/command mode)      |
+| `<C-o>`      | Go to end of the line (insert/command mode)        |
+| `<C-u>`      | Up (insert mode)                                   |
+| `<C-e>`      | Down (insert mode)                                 |
+| `<C-l>`      | Previous command history (Command mode)            |
+| `<C-y>`      | Next command history (Command mode)                |
+| `<C-u>`      | Previous page                                      |
+| `<C-e>`      | Next page                                          |
+| `N`          | Cursor to the first non-blank of the line          |
+| `I`          | Cursor to the end of the line                      |
+| `W`          | Move cursor 5 words forward                        |
+| `B`          | Move cursor 5 words backward                       |
+| `>`          | Indent                                             |
+| `<`          | Un-indent                                          |
+| `            | Toggle case                                        |
+| `;`          | Command mode                                       |
+| `j`          | Go to pair                                         |
+| `vv`         | Select non-blank of the line except `\n`           |
+| `<Esc>`      | No highlight search                                |
+| `Q`          | Record typed characters into register              |
+| `q`          | Quit                                               |
+| `S`          | Save                                               |
+| `<A-r>`      | Replace                                            |
+| `<A-s>`      | Source nvim configuration file                     |
+| `<C-c>`      | cd                                                 |
+| `<Leader>ad` | Find adjacent duplicated word                      |
+| `<Ledder>as` | Spell check                                        |
+| `,r`         | Insert placeholder `<++>` (Insert mode)            |
+| `,f`         | Go to next placeholder `<++>` (Insert mode)        |
 
 ### 2 Window Management
 
