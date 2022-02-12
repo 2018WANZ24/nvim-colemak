@@ -1,13 +1,15 @@
 if empty(glob($HOME.'/.config/nvim/autoload/plug.vim'))
-	silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !curl -fLo $HOME/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
+let &t_ut=''
+set clipboard+=unnamedplus
 set encoding=utf-8
 set fileencodings=utf-8
 set termencoding=utf-8
-set clipboard+=unnamedplus
-set noswapfile
+set exrc
+set secure
 set number
 set relativenumber
 set cursorline
@@ -16,19 +18,32 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set autoindent
+set list
+set listchars=tab:\|\ ,trail:▫
 set scrolloff=4
 set ttimeoutlen=0
 set notimeout
+set viewoptions=cursor,folds,slash,unix
+set wrap
+set tw=0
+set indentexpr=
 set foldmethod=indent
-set foldlevel=30
+set foldlevel=40
+set foldenable
+set formatoptions-=tc
+set splitright
+set splitbelow
 set noshowmode
-set noshowcmd
+set showcmd
+set wildmenu
 set ignorecase
 set smartcase
 set shortmess+=c
-set history=50
-set updatetime=100
-set termguicolors
+set inccommand=split
+set completeopt=longest,noinsert,menuone,noselect,preview
+set ttyfast "should make scrolling faster
+set lazyredraw "same as above
 
 silent !mkdir -p $HOME/.config/nvim/tmp/backup
 silent !mkdir -p $HOME/.config/nvim/tmp/undo
@@ -36,6 +51,16 @@ set backupdir=$HOME/.config/nvim/tmp/backup,.
 set directory=$HOME/.config/nvim/tmp/backup,.
 set undofile
 set undodir=$HOME/.config/nvim/tmp/undo,.
+
+set colorcolumn=120
+set updatetime=100
+set virtualedit=block
+set noswapfile
+set history=50
+set updatetime=100
+set termguicolors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+hi NonText ctermfg=gray guifg=grey10
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -50,14 +75,13 @@ noremap h e
 noremap H E
 noremap - N
 noremap = n
-source ~/.config/nvim/config/cursor.vim
 
-inoremap <C-e> <Down>
+noremap! <C-h> <Home>
+noremap! <C-o> <End>
 inoremap <C-u> <Up>
+inoremap <C-e> <Down>
 cnoremap <C-l> <Up>
 cnoremap <C-y> <Down>
-noremap! <C-n> <Home>
-noremap! <C-o> <End>
 
 noremap <C-u> <C-b>
 noremap <C-e> <C-f>
@@ -72,14 +96,24 @@ noremap ` ~
 noremap ; :
 noremap j %
 nnoremap vv ^v$h
+
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
 nnoremap Q q
 nnoremap S :w<CR>
+nnoremap <A-r> :%s//g<Left><Left>
+vnoremap <A-r> :s//g<Left><Left>
 nnoremap <A-s> :source $HOME/.config/nvim/init.vim<CR>
 nnoremap <C-c> :cd<Space>
+noremap <Leader>ad /\(\<\w\+\>\)\_s*\1
+noremap <Leader>as :set spell!<CR>
+inoremap <buffer> ,r <++>
+inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
 
-" Window
+
+" ===
+" === Window Management
+" ===
 nnoremap s <nop>
 nnoremap <silent> sN :set nosplitright<CR>:vsplit<CR>
 nnoremap <silent> sE :set splitbelow<CR>:split<CR>
@@ -110,8 +144,11 @@ nnoremap sf <C-w>w
 nnoremap sc <C-w>o
 nnoremap <silent> sq <C-w>w:q<CR>
 
-" Tab
+" ===
+" === Tab Management
+" ===
 nnoremap <silent> ss :tabe<CR>
+nnoremap <silent> sS :tab split<CR>
 nmap <Leader>1 <Plug>AirlineSelectTab1
 nmap <Leader>2 <Plug>AirlineSelectTab2
 nmap <Leader>3 <Plug>AirlineSelectTab3
@@ -127,22 +164,72 @@ nmap sy <Plug>AirlineSelectNextTab
 nnoremap <silent> sml :-tabmove<CR>
 nnoremap <silent> smy :+tabmove<CR>
 
+" ===
+" === Markdown
+" ===
+autocmd BufRead,BufNewFile *.md setlocal spell
 source ~/.config/nvim/config/md-snippets.vim
 
-inoremap <buffer> ,r <++>
-inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
-
-noremap <Space>rr :call CompileRunGcc()<CR>
+" ===
+" === Run
+" ===
+nnoremap <Space>rr :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'markdown'
-		exec "MarkdownPreview"
-	elseif &filetype == 'dart'
-		silent! exec "CocCommand flutter.run"
-	endif
+  exec "w"
+  if &filetype == 'c'
+    set splitbelow
+    :sp
+    :res -5
+    term gcc -ansi -Wall % -o %< && time ./%<
+  elseif &filetype == 'cpp'
+    set splitbelow
+    exec "!g++ -std=c++11 % -Wall -o %<"
+    :sp
+    :res -15
+    :term ./%<
+  elseif &filetype == 'cs'
+    set splitbelow
+    silent! exec "!mcs %"
+    :sp
+    :res -5
+    :term mono %<.exe
+  elseif &filetype == 'java'
+    set splitbelow
+    :sp
+    :res -5
+    term javac % && time java %<
+  elseif &filetype == 'sh'
+    :!time bash %
+  elseif &filetype == 'python'
+    set splitbelow
+    :sp
+    :term python3 %
+  elseif &filetype == 'html'
+    silent! exec "!".g:mkdp_browser." % &"
+  elseif &filetype == 'markdown'
+    exec "InstantMarkdownPreview"
+  elseif &filetype == 'tex'
+    silent! exec "VimtexStop"
+    silent! exec "VimtexCompile"
+  elseif &filetype == 'dart'
+    exec "CocCommand flutter.run"
+    silent! exec "CocCommand flutter.dev.openDevLog"
+  elseif &filetype == 'javascript'
+    set splitbelow
+    :sp
+    :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+  elseif &filetype == 'go'
+    set splitbelow
+    :sp
+    :term go run .
+  endif
 endfunc
 
-" Plugins
+source ~/.config/nvim/config/cursor.vim
+
+" ===
+" === Plugins
+" ===
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
@@ -154,10 +241,11 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'skywind3000/asynctasks.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'honza/vim-snippets'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'liuchengxu/vista.vim'
 Plug 'mbbill/undotree'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -175,6 +263,7 @@ Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'godlygeek/tabular'
 
 call plug#end()
 
@@ -204,23 +293,23 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type= 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#buffer_idx_format = {
-	\ '0': '0 ',
-	\ '1': '1 ',
-	\ '2': '2 ',
-	\ '3': '3 ',
-	\ '4': '4 ',
-	\ '5': '5 ',
-	\ '6': '6 ',
-	\ '7': '7 ',
-	\ '8': '8 ',
-	\ '9': '9 '
-	\}
+  \ '0': '0 ',
+  \ '1': '1 ',
+  \ '2': '2 ',
+  \ '3': '3 ',
+  \ '4': '4 ',
+  \ '5': '5 ',
+  \ '6': '6 ',
+  \ '7': '7 ',
+  \ '8': '8 ',
+  \ '9': '9 '
+  \}
 
 function! WindowNumber(...)
-	let builder = a:1
-	let context = a:2
-	call builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())} ')
-	return 0
+  let builder = a:1
+  let context = a:2
+  call builder.add_section('airline_b', ' %{tabpagewinnr(tabpagenr())} ')
+  return 0
 endfunction
 
 call airline#add_statusline_func('WindowNumber')
@@ -235,11 +324,11 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		max_file_lines = nil,
-	}
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  }
 }
 EOF
 
@@ -248,28 +337,30 @@ EOF
 " ===
 let g:coc_data_home = '~/.config/nvim/coc/'
 let g:coc_global_extensions = [
-	\ 'coc-explorer',
-	\ 'coc-floaterm',
-	\ 'coc-flutter-tools',
-	\ 'coc-git',
+  \ 'coc-explorer',
+  \ 'coc-floaterm',
+  \ 'coc-flutter-tools',
+  \ 'coc-git',
   \ 'coc-go',
-	\ 'coc-json',
-	\ 'coc-lists',
-	\ 'coc-python',
-	\ 'coc-pyright',
+  \ 'coc-json',
+  \ 'coc-lists',
+  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-snippets',
-	\ 'coc-tasks',
-	\ 'coc-translator',
-	\ 'coc-vimlsp',
+  \ 'coc-tasks',
+  \ 'coc-translator',
+  \ 'coc-vimlsp',
   \ 'coc-yaml',
-	\ 'coc-yank',]
+  \ 'coc-yank']
 
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+inoremap <silent><expr> <C-r> coc#refresh()
 
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
 
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD :tab sp<CR><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -340,6 +431,7 @@ nnoremap <silent> <Space>s :CocList -I --ignore-case lines<CR>
 nnoremap <silent> <Space>oc :CocList vimcommands<CR>
 nnoremap <silent> <Space>oa :CocList --normal tasks<CR>
 nnoremap <silent> <Space>ot :CocList --normal floaterm<CR>
+nnoremap <silent> <Space>od :CocList --normal diagnostics<CR>
 
 " === coc-git
 nmap g- <Plug>(coc-git-prevchunk)
@@ -357,6 +449,13 @@ nnoremap <silent> zg :CocCommand git.foldUnchanged<CR>
 nnoremap <silent> gp :CocCommand git.push<CR>
 
 " ===
+" === dart-vim-plugin
+" ===
+let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
+let g:dartfmt_options = ["-l 100"]
+
+" ===
 " === asynctasks.vim
 " ===
 let g:asyncrun_open = 6
@@ -367,6 +466,13 @@ noremap <silent> <Space>rf :AsyncTask file-run<CR>
 noremap <silent> <Space>rbf :AsyncTask file-build<CR>
 noremap <silent> <Space>rp :AsyncTask project-run<CR>
 noremap <silent> <Space>rbp :AsyncTask project-build<CR>
+
+" ===
+" === vim-instant-markdown
+" ===
+let g:instant_markdown_slow = 0
+let g:instant_markdown_autostart = 0
+let g:instant_markdown_autoscroll = 1
 
 " ===
 " === vista.vim
@@ -393,10 +499,10 @@ let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
 function g:Undotree_CustomMap()
-	nmap <buffer> u <plug>UndotreeNextState
-	nmap <buffer> e <plug>UndotreePreviousState
-	nmap <buffer> U 5<plug>UndotreeNextState
-	nmap <buffer> E 5<plug>UndotreePreviousState
+  nmap <buffer> u <plug>UndotreeNextState
+  nmap <buffer> e <plug>UndotreePreviousState
+  nmap <buffer> U 5<plug>UndotreeNextState
+  nmap <buffer> E 5<plug>UndotreePreviousState
 endfunc
 
 " ===
@@ -451,18 +557,18 @@ let g:tcomment_opleader1 = 'mv'
 " ===
 " === vim-visual-multi
 " ===
-let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
-let g:VM_maps = {}
-let g:VM_custom_motions = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
-let g:VM_maps['i'] = 'k'
-let g:VM_maps['I'] = 'K'
-let g:VM_maps['Find Under'] = '<C-k>'
+let g:VM_leader                     = {'default': ',', 'visual': ',', 'buffer': ','}
+let g:VM_maps                       = {}
+let g:VM_custom_motions             = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
+let g:VM_maps['i']                  = 'k'
+let g:VM_maps['I']                  = 'K'
+let g:VM_maps['Find Under']         = '<C-k>'
 let g:VM_maps['Find Subword Under'] = '<C-k>'
 let g:VM_maps["Select Cursor Down"] = 'E'
-let g:VM_maps["Select Cursor Up"] = 'U'
-let g:VM_maps['Find Next'] = ''
-let g:VM_maps['Find Prev'] = ''
-let g:VM_maps["Undo"] = 'l'
+let g:VM_maps["Select Cursor Up"]   = 'U'
+let g:VM_maps['Find Next']          = ''
+let g:VM_maps['Find Prev']          = ''
+let g:VM_maps["Undo"]               = 'l'
 
 " ===
 " === vim-hexokinase
@@ -510,16 +616,24 @@ nnoremap <silent> sti :FloatermNew --wintype=vsplit --position=right --width=0.5
 tnoremap <A-x> <C-\><C-n>
 tnoremap <A-w> <C-\><C-n><C-w>w
 
-let g:terminal_color_0 = '#000000'
-let g:terminal_color_1 = '#FF5555'
-let g:terminal_color_2 = '#50FA7B'
-let g:terminal_color_3 = '#F1FA8C'
-let g:terminal_color_4 = '#BD93F9'
-let g:terminal_color_5 = '#FF79C6'
-let g:terminal_color_6 = '#8BE9FD'
-let g:terminal_color_7 = '#BFBFBF'
-let g:terminal_color_8 = '#4D4D4D'
-let g:terminal_color_9 = '#FF6E67'
+" ===
+" === tabular
+" ===
+vnoremap <Leader>t :Tabularize /
+
+" ===
+" === Terminal Colors
+" ===
+let g:terminal_color_0  = '#000000'
+let g:terminal_color_1  = '#FF5555'
+let g:terminal_color_2  = '#50FA7B'
+let g:terminal_color_3  = '#F1FA8C'
+let g:terminal_color_4  = '#BD93F9'
+let g:terminal_color_5  = '#FF79C6'
+let g:terminal_color_6  = '#8BE9FD'
+let g:terminal_color_7  = '#BFBFBF'
+let g:terminal_color_8  = '#4D4D4D'
+let g:terminal_color_9  = '#FF6E67'
 let g:terminal_color_10 = '#5AF78E'
 let g:terminal_color_11 = '#F4F99D'
 let g:terminal_color_12 = '#CAA9FA'
