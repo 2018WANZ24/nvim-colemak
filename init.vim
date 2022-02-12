@@ -39,9 +39,9 @@ set undodir=$HOME/.config/nvim/tmp/undo,.
 
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-noremap u k
 noremap n h
 noremap e j
+noremap u k
 noremap i l
 noremap l u
 noremap k i
@@ -52,14 +52,11 @@ noremap - N
 noremap = n
 source ~/.config/nvim/config/cursor.vim
 
-inoremap <C-n> <Left>
 inoremap <C-e> <Down>
 inoremap <C-u> <Up>
 cnoremap <C-l> <Up>
 cnoremap <C-y> <Down>
-cnoremap <C-n> <Left>
-cnoremap <C-e> <Right>
-noremap! <C-a> <Home>
+noremap! <C-n> <Home>
 noremap! <C-o> <End>
 
 noremap <C-u> <C-b>
@@ -73,10 +70,7 @@ nnoremap > >>
 nnoremap < <<
 noremap ` ~
 noremap ; :
-nnoremap dp d%
-nnoremap vp v%
-nnoremap cp c%
-nnoremap yp y%
+noremap j %
 nnoremap vv ^v$h
 nnoremap <silent> <Space><CR> :nohlsearch<CR>
 nnoremap <silent> q :q<CR>
@@ -114,6 +108,7 @@ nnoremap srh <C-w>b<C-w>K
 nnoremap srv <C-w>b<C-w>H
 nnoremap sf <C-w>w
 nnoremap sc <C-w>o
+nnoremap <silent> sq <C-w>w:q<CR>
 
 " Tab
 nnoremap <silent> ss :tabe<CR>
@@ -132,7 +127,12 @@ nmap sy <Plug>AirlineSelectNextTab
 nnoremap <silent> sml :-tabmove<CR>
 nnoremap <silent> smy :+tabmove<CR>
 
-noremap 34 :call CompileRunGcc()<CR>
+source ~/.config/nvim/config/md-snippets.vim
+
+inoremap <buffer> ,r <++>
+inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
+
+noremap <Space>rr :call CompileRunGcc()<CR>
 func! CompileRunGcc()
 	exec "w"
 	if &filetype == 'markdown'
@@ -169,14 +169,16 @@ Plug 'tomtom/tcomment_vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
-Plug 'voldikss/vim-floaterm'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-after-object'
 Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'Yggdroot/indentLine'
 Plug 'rhysd/clever-f.vim'
+Plug 'voldikss/vim-floaterm'
 Plug 'godlygeek/tabular'
+Plug 'othree/html5.vim'
+Plug 'puremourning/vimspector'
 
 call plug#end()
 
@@ -268,7 +270,7 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
 	\ 'coc-yank',]
 
-inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Right>"
+inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
 
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
@@ -334,7 +336,7 @@ nnoremap <silent> <Space>t :CocCommand explorer<CR>
 nnoremap <silent> <Space>y :CocList -A --normal yank<CR>
 
 " === coc-translator
-nmap ts <Plug>(coc-translator-p)
+nmap <A-t> <Plug>(coc-translator-p)
 
 " === coc-lists
 nnoremap <silent> <Space>f :CocList files<CR>
@@ -355,7 +357,7 @@ omap kg <Plug>(coc-git-chunk-inner)
 xmap kg <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
-nnoremap <silent> gu :CocCommand git.chunkUndo<CR>
+nnoremap <silent> gl :CocCommand git.chunkUndo<CR>
 nnoremap <silent> gs :CocCommand git.chunkStage<CR>
 nnoremap <silent> zg :CocCommand git.foldUnchanged<CR>
 nnoremap <silent> gp :CocCommand git.push<CR>
@@ -367,10 +369,10 @@ let g:asyncrun_open = 6
 let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 let g:asynctasks_term_rows = 10
 let g:asynctasks_term_cols = 80
-noremap <silent> 32 :AsyncTask file-run<CR>
-noremap <silent> 22 :AsyncTask file-build<CR>
-noremap <silent> 33 :AsyncTask project-run<CR>
-noremap <silent> 23 :AsyncTask project-build<CR>
+noremap <silent> <Space>rf :AsyncTask file-run<CR>
+noremap <silent> <Space>rbf :AsyncTask file-build<CR>
+noremap <silent> <Space>rp :AsyncTask project-run<CR>
+noremap <silent> <Space>rbp :AsyncTask project-build<CR>
 
 " ===
 " === vista.vim
@@ -416,7 +418,7 @@ endfunc
 " ===
 " === lazygit.nvim
 " ===
-nnoremap <silent> <Space>g :LazyGit<CR>
+nnoremap <silent> go :LazyGit<CR>
 let g:lazygit_floating_window_winblend = 0 " transparency of floating window
 let g:lazygit_floating_window_scaling_factor = 1.0 " scaling factor for floating window
 let g:lazygit_floating_window_corner_chars = ['╭', '╮', '╰', '╯'] " customize lazygit popup window corner characters
@@ -476,7 +478,6 @@ let g:Hexokinase_highlighters = ['foregroundfull']
 " ===
 " === vim-table-mode
 " ===
-nnoremap <Leader>t :TableModeToggle<CR>
 let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 
 " ===
@@ -504,9 +505,9 @@ let g:indentLine_char = '|'
 let g:floaterm_width = 1.0
 let g:floaterm_height = 1.0
 let g:floaterm_keymap_new = '<A-u>'
+let g:floaterm_keymap_toggle = '<A-e>'
 let g:floaterm_keymap_prev = '<A-n>'
 let g:floaterm_keymap_next = '<A-i>'
-let g:floaterm_keymap_toggle = '<A-e>'
 let g:floaterm_keymap_kill = '<A-q>'
 nnoremap <silent> stn :FloatermNew --wintype=vsplit --position=left --width=0.5<CR>
 nnoremap <silent> ste :FloatermNew --wintype=split --position=bottom --height=0.5<CR>
@@ -514,8 +515,6 @@ nnoremap <silent> stu :FloatermNew --wintype=split --position=top --height=0.5<C
 nnoremap <silent> sti :FloatermNew --wintype=vsplit --position=right --width=0.5<CR>
 tnoremap <A-x> <C-\><C-n>
 tnoremap <A-w> <C-\><C-n><C-w>w
-
-source ~/.config/nvim/config/md-snippets.vim
 
 let g:terminal_color_0 = '#000000'
 let g:terminal_color_1 = '#FF5555'
