@@ -159,7 +159,7 @@ Example:
 | `'rs`    | Move the cursor down 23 lines |
 | `[do`    | Move the cursor up 50 lines   |
 
-**Note: As of now, you may only move vertically up to 99 lines with this key configuration!**
+**Note: As of now, you may only move vertically up to 69 lines with this key configuration!**
 
 ## Plugins
 The plugin manager is [vim-plug](https://github.com/junegunn/vim-plug).
