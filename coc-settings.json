@@ -45,7 +45,6 @@
     "h",
     "c",
     "cpp",
-    "dart",
     "python",
     "javascript",
     "go"
@@ -110,7 +109,6 @@
     "zh": "toggleHidden",
     "R": "refresh",
     "?": "help",
-    "q": "quit",
     "X": "systemExecute",
     "gd": "listDrive",
     "f": "search",
@@ -131,7 +129,7 @@
     "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips/"
   ],
   "python.jediEnabled": false,
-  "yank.list.maxsize": 30,
+  "yank.list.maxsize": 50,
   "yank.enableCompletion": false,
   "list.nextKeymap": "<C-e>",
   "list.previousKeymap": "<C-u>",
