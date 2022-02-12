@@ -324,7 +324,7 @@ call airline#add_inactive_statusline_func('WindowNumber')
 " ===
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"c", "cpp", "python", "dart", "go", "bash", "lua", "json", "javascript"},
+  ensure_installed = {"c", "cpp", "python", "dart", "go", "bash", "lua", "json", "javascript", "markdown"},
   highlight = {
     enable = true,
     disable = { "html" },
