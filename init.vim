@@ -216,7 +216,7 @@ func! CompileRunGcc()
   elseif &filetype == 'javascript'
     set splitbelow
     :sp
-    :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+    :term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings %
   elseif &filetype == 'go'
     set splitbelow
     :sp
@@ -231,6 +231,7 @@ source ~/.config/nvim/config/cursor.vim
 " ===
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'EdenEast/nightfox.nvim'
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug '2018WANZ24/nvim-deus'
@@ -269,7 +270,8 @@ Plug 'puremourning/vimspector'
 
 call plug#end()
 
-color dracula
+" color dracula
+color nightfox
 " ===
 " === gruvbox
 " ===

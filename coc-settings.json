@@ -47,6 +47,7 @@
     "cpp",
     "python",
     "javascript",
+    "html",
     "go"
   ],
   "yaml.format.enable": true,
