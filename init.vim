@@ -236,6 +236,7 @@ Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug '2018WANZ24/nvim-deus'
 Plug 'joshdick/onedark.vim'
+Plug 'EdenEast/nightfox.nvim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
