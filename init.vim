@@ -351,7 +351,6 @@ let g:coc_global_extensions = [
   \ 'coc-go',
   \ 'coc-json',
   \ 'coc-lists',
-  \ 'coc-python',
   \ 'coc-pyright',
   \ 'coc-snippets',
   \ 'coc-tasks',
