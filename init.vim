@@ -83,8 +83,8 @@ inoremap <C-e> <Down>
 cnoremap <C-l> <Up>
 cnoremap <C-y> <Down>
 
-noremap <C-u> <C-b>
-noremap <C-e> <C-f>
+" noremap <C-u> <C-b>
+" noremap <C-e> <C-f>
 noremap N ^
 nnoremap I $
 vnoremap I $h
@@ -231,12 +231,13 @@ source ~/.config/nvim/config/cursor.vim
 " ===
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'EdenEast/nightfox.nvim'
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
 Plug '2018WANZ24/nvim-deus'
 Plug 'joshdick/onedark.vim'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'sainnhe/everforest'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -271,12 +272,20 @@ Plug 'puremourning/vimspector'
 
 call plug#end()
 
+" let g:tokyonight_style = "day"
+
+" let g:gruvbox_contrast_light = "hard"
+" let g:gruvbox_contrast_light = "soft"
+" set background = "light"
+let g:gruvbox_contrast_dark = "hard"
+" let g:gruvbox_contrast_dark = "soft"
+
 " color dracula
-color nightfox
+" color nightfox
 " ===
 " === gruvbox
 " ===
-" color gruvbox
+color gruvbox
 
 " ===
 " === nvim-deus
@@ -294,7 +303,7 @@ color nightfox
 let g:airline_theme = 'deus'
 let g:airline_section_c = '%{getcwd()} %{airline#util#wrap(airline#extensions#coc#get_status(),0)}'
 let g:airline_section_x = ''
-let g:airline_section_z = '%l/%L'
+let g:airline_section_z = '%l/%L:%c'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type= 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -352,6 +361,9 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-lists',
   \ 'coc-pyright',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-tsserver',
   \ 'coc-snippets',
   \ 'coc-tasks',
   \ 'coc-translator',
@@ -497,7 +509,7 @@ let g:vista_top_level_blink = [0, 0]
 " ===
 " === undotree
 " ===
-nnoremap <silent> L :UndotreeToggle<CR>
+nnoremap <silent> <Space>L :UndotreeToggle<CR>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
