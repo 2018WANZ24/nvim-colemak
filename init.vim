@@ -72,7 +72,7 @@ noremap l u
 noremap k i
 noremap K I
 noremap h e
-noremap H E
+" noremap H E
 noremap - N
 noremap = n
 
