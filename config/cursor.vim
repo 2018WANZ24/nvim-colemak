@@ -2,7 +2,7 @@ noremap   [q   2k
 noremap   [w   3k
 noremap   [f   4k
 noremap   [p   5k
-noremap   [h   6k
+noremap   [g   6k
 noremap   [n   7k
 noremap   [e   8k
 noremap   [i   9k
@@ -56,12 +56,22 @@ noremap  [dh  56k
 noremap  [dn  57k
 noremap  [de  58k
 noremap  [di  59k
+noremap  [ho  60k
+noremap  [ha  61k
+noremap  [hr  62k
+noremap  [hs  63k
+noremap  [ht  64k
+noremap  [hd  65k
+noremap  [hh  66k
+noremap  [hn  67k
+noremap  [he  68k
+noremap  [hi  69k
 
 noremap   'q   2j
 noremap   'w   3j
 noremap   'f   4j
 noremap   'p   5j
-noremap   'h   6j
+noremap   'g   6j
 noremap   'n   7j
 noremap   'e   8j
 noremap   'i   9j
@@ -115,3 +125,13 @@ noremap  'dh  56j
 noremap  'dn  57j
 noremap  'de  58j
 noremap  'di  59j
+noremap  'ho  60j
+noremap  'ha  61j
+noremap  'hr  62j
+noremap  'hs  63j
+noremap  'ht  64j
+noremap  'hd  65j
+noremap  'hh  66j
+noremap  'hn  67j
+noremap  'he  68j
+noremap  'hi  69j
