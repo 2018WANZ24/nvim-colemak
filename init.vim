@@ -73,18 +73,18 @@ noremap k i
 noremap K I
 noremap h e
 noremap H E
-noremap - N
-noremap = n
+noremap j n
+noremap J N
 
-noremap! <C-h> <Home>
-noremap! <C-o> <End>
-inoremap <C-u> <Up>
-inoremap <C-e> <Down>
-cnoremap <C-l> <Up>
-cnoremap <C-y> <Down>
+noremap! <A-n> <Left>
+noremap! <A-e> <Down>
+noremap! <A-u> <Up>
+noremap! <A-i> <Right>
+noremap! <A-h> <Home>
+noremap! <A-o> <End>
 
-noremap <C-u> <C-b>
-noremap <C-e> <C-f>
+noremap <A-u> <C-b>
+noremap <A-e> <C-f>
 noremap N ^
 nnoremap I $
 vnoremap I $h
@@ -94,20 +94,19 @@ nnoremap > >>
 nnoremap < <<
 noremap ` ~
 noremap ; :
-noremap j %
+noremap <A-t> %
 nnoremap vv ^v$h
 
 nnoremap <silent> q :q<CR>
 nnoremap Q q
 nnoremap S :w<CR>
-nnoremap <A-r> :%s//g<Left><Left>
-vnoremap <A-r> :s//g<Left><Left>
-nnoremap <A-s> :source $HOME/.config/nvim/init.vim<CR>
-nnoremap <C-c> :cd<Space>
+nnoremap <C-s> :%s//g<Left><Left>
+vnoremap <C-s> :s//g<Left><Left>
+nnoremap <A-c> :cd<Space>
 noremap <Leader>ad /\(\<\w\+\>\)\_s*\1
 noremap <Leader>as :set spell!<CR>
-inoremap <buffer> ,r <++>
-inoremap <buffer> ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
+inoremap <buffer> <C-r> <++>
+inoremap <buffer> <C-f> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 
 " ===
@@ -354,7 +353,7 @@ let g:coc_global_extensions = [
   \ 'coc-yank']
 
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
-inoremap <silent><expr> <C-r> coc#refresh()
+inoremap <silent><expr> <A-r> coc#refresh()
 
 nmap <silent> g[ <Plug>(coc-diagnostic-prev)
 nmap <silent> g] <Plug>(coc-diagnostic-next)
@@ -399,16 +398,16 @@ omap kc <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-nnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
-nnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
-inoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<C-]>"
-inoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<C-[>"
-vnoremap <silent><nowait><expr> <C-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-]>"
-vnoremap <silent><nowait><expr> <C-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-[>"
+nnoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<A-]>"
+nnoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<A-[>"
+inoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<A-]>"
+inoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<A-[>"
+vnoremap <silent><nowait><expr> <A-]> coc#float#has_scroll() ? coc#float#scroll(1) : "\<A-]>"
+vnoremap <silent><nowait><expr> <A-[> coc#float#has_scroll() ? coc#float#scroll(0) : "\<A-[>"
 
 " === coc-snippets
-let g:coc_snippet_prev = '<C-l>'
-let g:coc_snippet_next = '<C-y>'
+let g:coc_snippet_prev = '<A-n>'
+let g:coc_snippet_next = '<A-i>'
 let g:snips_author = '2018WANZ24'
 
 " === coc-flutter-tools
@@ -421,7 +420,7 @@ nnoremap <silent> <Space>t :CocCommand explorer<CR>
 nnoremap <silent> <Space>y :CocList -A --normal yank<CR>
 
 " === coc-translator
-nmap <A-t> <Plug>(coc-translator-p)
+nmap <C-t> <Plug>(coc-translator-p)
 
 " === coc-lists
 nnoremap <silent> <Space>f :CocList files<CR>
@@ -478,7 +477,7 @@ let g:instant_markdown_autoscroll = 1
 " === vista.vim
 " ===
 nnoremap <silent> <Space>v :Vista!!<CR>
-" nnoremap <silent> <C-t> :silent! Vista finder coc<CR>
+" nnoremap <silent> <Space>m :silent! Vista finder coc<CR>
 let g:vista_default_executive = 'coc'
 " let g:vista_fzf_preview = ['right:50%']
 let g:vista_sidebar_open_cmd = 'set splitright|30vsplit'
@@ -533,18 +532,18 @@ let g:rnvimr_draw_border = 0
 highlight link RnvimrNormal CursorLine
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-x>': 'NvimEdit split',
-            \ '<C-p>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'yw': 'EmitRangerCwd'
-            \ }
+  \ '<A-t>': 'NvimEdit tabedit',
+  \ '<A-s>': 'NvimEdit split',
+  \ '<A-v>': 'NvimEdit vsplit',
+  \ 'gw': 'JumpNvimCwd',
+  \ 'yw': 'EmitRangerCwd'
+  \ }
 let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
-            \ 'style': 'minimal' }
+  \ 'width': &columns,
+  \ 'height': &lines,
+  \ 'col': 0,
+  \ 'row': 0,
+  \ 'style': 'minimal' }
 let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 
 " ===
@@ -562,8 +561,8 @@ let g:VM_maps                       = {}
 let g:VM_custom_motions             = {'n': 'h', 'i': 'l', 'u': 'k', 'e': 'j', 'N': '0', 'I': '$', 'h': 'e'}
 let g:VM_maps['i']                  = 'k'
 let g:VM_maps['I']                  = 'K'
-let g:VM_maps['Find Under']         = '<C-k>'
-let g:VM_maps['Find Subword Under'] = '<C-k>'
+let g:VM_maps['Find Under']         = '<A-k>'
+let g:VM_maps['Find Subword Under'] = '<A-k>'
 let g:VM_maps["Select Cursor Down"] = 'E'
 let g:VM_maps["Select Cursor Up"]   = 'U'
 let g:VM_maps['Find Next']          = ''
@@ -585,7 +584,7 @@ let g:table_mode_cell_text_object_i_map = 'k<Bar>'
 " ===
 let g:AutoPairsShortcutToggle = ''
 let g:AutoPairsShortcutJump = ''
-let g:AutoPairsShortcutFastWrap = '<A-w>'
+let g:AutoPairsShortcutFastWrap = '<C-w>'
 let g:AutoPairsMapCh = 0
 let g:AutoPairsFlyMode = 1
 
@@ -604,17 +603,17 @@ let g:indentLine_char = '|'
 " ===
 let g:floaterm_width = 1.0
 let g:floaterm_height = 1.0
-let g:floaterm_keymap_new = '<A-u>'
-let g:floaterm_keymap_toggle = '<A-e>'
-let g:floaterm_keymap_prev = '<A-n>'
-let g:floaterm_keymap_next = '<A-i>'
-let g:floaterm_keymap_kill = '<A-q>'
+let g:floaterm_keymap_new = '<C-u>'
+let g:floaterm_keymap_toggle = '<C-e>'
+let g:floaterm_keymap_prev = '<C-l>'
+let g:floaterm_keymap_next = '<C-y>'
+let g:floaterm_keymap_kill = '<C-q>'
 nnoremap <silent> stn :FloatermNew --wintype=vsplit --position=left --width=0.5<CR>
 nnoremap <silent> ste :FloatermNew --wintype=split --position=bottom --height=0.5<CR>
 nnoremap <silent> stu :FloatermNew --wintype=split --position=top --height=0.5<CR>
 nnoremap <silent> sti :FloatermNew --wintype=vsplit --position=right --width=0.5<CR>
-tnoremap <A-x> <C-\><C-n>
-tnoremap <A-w> <C-\><C-n><C-w>w
+tnoremap <C-n> <C-\><C-n>
+tnoremap <C-o> <C-\><C-n><C-w>w
 
 " ===
 " === tabular
