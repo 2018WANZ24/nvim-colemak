@@ -72,9 +72,9 @@ noremap l u
 noremap k i
 noremap K I
 noremap h e
-" noremap H E
-noremap - N
-noremap = n
+noremap H E
+noremap j n
+noremap J N
 
 noremap! <A-n> <Left>
 noremap! <A-e> <Down>
@@ -94,7 +94,7 @@ nnoremap > >>
 nnoremap < <<
 noremap ` ~
 noremap ; :
-noremap j %
+noremap <A-t> %
 nnoremap vv ^v$h
 
 nnoremap <silent> q :q<CR>
@@ -551,18 +551,18 @@ let g:rnvimr_draw_border = 0
 highlight link RnvimrNormal CursorLine
 nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
 let g:rnvimr_action = {
-            \ '<A-t>': 'NvimEdit tabedit',
-            \ '<A-s>': 'NvimEdit split',
-            \ '<A-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'yw': 'EmitRangerCwd'
-            \ }
+  \ '<A-t>': 'NvimEdit tabedit',
+  \ '<A-s>': 'NvimEdit split',
+  \ '<A-v>': 'NvimEdit vsplit',
+  \ 'gw': 'JumpNvimCwd',
+  \ 'yw': 'EmitRangerCwd'
+  \ }
 let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
-            \ 'style': 'minimal' }
+  \ 'width': &columns,
+  \ 'height': &lines,
+  \ 'col': 0,
+  \ 'row': 0,
+  \ 'style': 'minimal' }
 let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
 
 " ===
