@@ -273,9 +273,9 @@ call plug#end()
 
 " let g:tokyonight_style = "day"
 
-let g:gruvbox_contrast_light = "hard"
+" let g:gruvbox_contrast_light = "hard"
 " let g:gruvbox_contrast_light = "soft"
-set background = "light"
+" set background = "light"
 " let g:gruvbox_contrast_dark = "hard"
 " let g:gruvbox_contrast_dark = "soft"
 
