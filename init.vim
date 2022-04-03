@@ -75,6 +75,7 @@ noremap h e
 noremap H E
 noremap j n
 noremap J N
+noremap <A-j> J
 
 noremap! <A-n> <Left>
 noremap! <A-e> <Down>
@@ -107,6 +108,7 @@ noremap <Leader>ad /\(\<\w\+\>\)\_s*\1
 noremap <Leader>as :set spell!<CR>
 inoremap <buffer> <C-r> <++>
 inoremap <buffer> <C-f> <Esc>/<++><CR>:nohlsearch<CR>c4l
+vnoremap // y/<c-r>"<cr>
 
 
 " ===
