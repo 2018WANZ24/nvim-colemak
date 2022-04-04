@@ -40,16 +40,7 @@
   "diagnostic.refreshOnInsertMode": false,
   "diagnostic.checkCurrentLine": true,
   "codeLens.enable": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "json",
-    "h",
-    "c",
-    "cpp",
-    "python",
-    "javascript",
-    "html",
-    "go"
-  ],
+  "coc.preferences.formatOnSaveFiletypes": [],
   "yaml.format.enable": true,
   "explorer.width": 35,
   "explorer.file.column.indent.indentLine": false,
